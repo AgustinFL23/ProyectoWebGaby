@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOCKUP equipo 1 No te tocaba Joshua</title>
+    <link rel="stylesheet" type="text/css" href="../../Comun/CSS/headerNavFooter.css">
+    <link rel="stylesheet" type="text/css" href="../../Comun/CSS/index.css">
+    <script src="Javascript/login.js" defer></script>
+    <script src="Javascript/session.js" defer></script>
+    <style>
+        .drop-target {
+            border: 2px dashed #aaa;
+            padding: 10px;
+            margin: 5px;
+            min-height: 50px;
+        }
+
+        .drag-option {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+            cursor: move;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .drag-option a {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .drag-option img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="Multimedia/Imagenes/logo.png" id="logo">
+        <h1>
+            Apoyo a la educacion primaria
+        </h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Primer opcion</a>
+            </li>
+            <li>
+                <a href="#">Segunda opci�n</a>
+                <ul>
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Resumen</a>
+                        <ul>
+                            <li>
+                                <a href="">Prueba</a>
+                            </li>
+                            <li>
+                                <a href="">Prueba 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> mas opciones</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li>
+                <a href="#">Tercer Opcion</a>
+            </li>
+            <li>
+                <a href="#">Cuarta Opcion</a>
+            </li>
+            <li>
+                <a href="#">Quinta Opcion</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="layout">
+        <div id="principal">
+            <div id="contenido">
+                <form id="dragDropForm">
+                    <div class="question">
+                        <p>1. ¿Cuántos PAQUETES DE 10 MANTELES PUEDES HACER CON 110 MANTELES?</p>
+                        <div class="drop-target" id="drop1"></div>
+                        <div class="drag-option" draggable="true" data-target="drop1"><img src="11.png"></div>
+                        <div class="drag-option" draggable="true" data-target="drop1"><a href="#"><img src="9.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop1"><a href=""><img src="7.jpg"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>2.¿Cuántos BOTONES HAY EN ESTA IMAGEN?</p>
+                        <a href="#"><img src="pregunta2.png"></a>
+                        <div class="drop-target" id="drop2"></div>
+                        <div class="drag-option" draggable="true" data-target="drop2"><a href="#"><img src="89.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop2"><a href="#"><img src="36.png"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>3. SI AGREGAS 10 BOTONES A LA IMAGEN ANTERIOR, ¿Cuántos BOTONES TENDRAS?</p>
+                        <div class="drop-target" id="drop3"></div>
+                        <div class="drag-option" draggable="true" data-target="drop3"><a href="#"><img src="98.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop3"><a href="#"><img src="82.png"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>4. ¿Cuántos BOTONES HAY EN ESTA IMAGEN?</p>
+                        <a href="#"><img src="pregunta4.jpg"></a>
+                        <div class="drop-target" id="drop4"></div>
+                        <div class="drag-option" draggable="true" data-target="drop4"><a href="#"><img src="64.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop4"><a href="#"><img src="43.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop4"><a href="#"><img src="34.png"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>5. ¿EN CUANTOS PAQUETES DE 10 BOTONES SE PUEDEN JUNTAR?</p>
+                        <div class="drop-target" id="drop5"></div>
+                        <div class="drag-option" draggable="true" data-target="drop5"><a href="#"><img src="7.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop5"><a href="#"><img src="5.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop5"><a href="#"><img src="4.png"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>6. ¿Cuántos BOTONES HAY EN ESTA IMAGEN?</p>
+                        <a href="#"><img src="pregunta6.png"></a>
+                        <div class="drop-target" id="drop6"></div>
+                        <div class="drag-option" draggable="true" data-target="drop6"><a href="#"><img src="46.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop6"><a href="#"><img src="11.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop6"><a href="#"><img src="31.png"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>7. ¿EN CUANTOS PAQUETES DE 5 BOTONES SE PUEDEN JUNTAR?</p>
+                        <div class="drop-target" id="drop7"></div>
+                        <div class="drag-option" draggable="true" data-target="drop7"><a href="#"><img src="10.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop7"><a href="#"><img src="7.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop7"><a href="#"><img src="5.jpg"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>8. SI EN UN TABLERO DE 100 CASILLAS ESTAS EN LA CASILLA 5 Y AVANZAS 3 ¿ EN QUE CASILLA QUEDASTE?</p>
+                        <div class="drop-target" id="drop8"></div>
+                        <div class="drag-option" draggable="true" data-target="drop8"><a href="#"><img src="8.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop8"><a href="#"><img src="10.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop8"><a href="#"><img src="31.png"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>9. SI ESTAS EN LA CASILLA 38 Y AVANZAS 2 ¿EN QUE CASILLA QUEDASTE?</p>
+                        <div class="drop-target" id="drop9"></div>
+                        <div class="drag-option" draggable="true" data-target="drop9"><a href="#"><img src="40.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop9"><a href="#"><img src="50.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop9"><a href="#"><img src="49.png"></a></div>
+                    </div>
+
+                    <div class="question">
+                        <p>10. SI ESTAS EN LA CASILLA 39 ¿Cuántas CASILLAS DEBES AVANZAR PARA LLEGAR A LA 100?</p>
+                        <div class="drop-target" id="drop10"></div>
+                        <div class="drag-option" draggable="true" data-target="drop10"><a href="#"><img src="61.jpg"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop10"><a href="#"><img src="49.png"></a></div>
+                        <div class="drag-option" draggable="true" data-target="drop10"><a href="#"><img src="63.jpg"></a></div>
+                    </div>
+
+                    <button type="submit">Enviar Respuestas</button>
+                </form>
+            </div>
+            <div id="footer">
+                copyright by Equipo1
+            </div>
+        </div>
+        <div id="aside">
+
+            <form id="loginForm" method="post" action="#" onsubmit="return validarLogin()">
+                <b>Inicio de sesi�n</b>
+                <br>
+                <label for="username">Correo</label>
+                <br>
+                <input type="email" id="correo" name="correo">
+                <br>
+                <br>
+                <label for="password">Contrase�a</label>
+                <br>
+                <input type="password" id="password" name="password">
+                <br>
+                <br>
+                <label for="tipo">Tipo de usuario</label>
+                <br>
+                <select id="tipo" name="tipo">
+                    <option>Administrador</option>
+                    <option>Profesor</option>
+                    <option>Alumno</option>
+                </select>
+                <br>
+                <br><br>
+                <button type="submit">Enviar</button>
+            </form>
+            <br><br><br>
+            <a href="HTML/Registro.html">Registrarse</a>
+            <br>
+            <br>
+            <a href="HTML/ContrasenaOlvidada.html">Olvidaste la contrase�a</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dragOptions = document.querySelectorAll('.drag-option');
+            const dropTargets = document.querySelectorAll('.drop-target');
+
+            dragOptions.forEach(option => {
+                option.addEventListener('dragstart', dragStart);
+            });
+
+            dropTargets.forEach(target => {
+                target.addEventListener('dragover', dragOver);
+                target.addEventListener('drop', dragDrop);
+            });
+
+            let draggedItem = null;
+
+            function dragStart(e) {
+                draggedItem = this;
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/plain', this.textContent);
+            }
+
+            function dragOver(e) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+            }
+
+            function dragDrop(e) {
+                e.preventDefault();
+                if (this.children.length === 0) {
+                    this.appendChild(draggedItem);
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
