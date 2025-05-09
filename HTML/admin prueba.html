@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    nav {
+      width: 200px;
+      background-color: #2c3e50;
+      font-family: sans-serif;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav > ul > li {
+      position: relative;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+      background-color: #34495e;
+      border-bottom: 1px solid #2c3e50;
+    }
+
+    nav li:hover > a {
+      background-color: #1abc9c;
+    }
+
+    /* Submenú oculto por defecto */
+    nav li ul {
+      display: none;
+      background-color: #3e556e;
+    }
+
+    /* Mostrar submenú al hacer hover sobre el li padre */
+    nav li:hover > ul {
+      display: block;
+    }
+
+    nav li ul li a {
+      padding-left: 30px;
+      background-color: #3e556e;
+      color: #ecf0f1;
+    }
+
+    nav li ul li a:hover {
+      background-color: #16a085;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Inicio</a>
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Resumen</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Servicios</a>
+        <ul>
+          <li><a href="#">Desarrollo</a></li>
+          <li><a href="#">Diseño</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Contacto</a>
+        <ul>
+          <li><a href="#">Email</a></li>
+          <li><a href="#">Ubicación</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+</body>
+</html>
+
