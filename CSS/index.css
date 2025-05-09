@@ -1,0 +1,24 @@
+#principal{
+	float: left;
+	width: 70vw;
+	height: 80vh;
+
+}
+#contenido{
+	width: 70vw;
+	height: 75vh;
+}
+#aside{
+	width: 30vw;
+	height: 80vh;
+	align-content: center;
+	background-color: lightsteelblue;
+
+}
+#aside form{
+	padding-left: 5vw;
+}
+#aside a{
+	padding-left: 5vw;
+	padding-right: 0vw;
+}
