@@ -1,8 +1,10 @@
 body{
 	margin: 0px;
+  color:  #37474F;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 header {
-	background-color: lightsteelblue;
+	background-color:  #4FC3F7;
 	height: 15vh;
 	width: 100vw;
 
@@ -24,8 +26,8 @@ header h1{
 nav{
 	width: 100vw;
 	height: 5vh;
-	background-color: black;
-	color: white;
+	 background-color: #3e556e;
+      color: #ecf0f1;
 	padding-top: 0px;
   position: sticky;
 }
@@ -47,6 +49,7 @@ nav li{
 	color: white;
 	font-size: 2vh;
 }
+
 nav ul {
       list-style: none;
       margin: 0;
@@ -56,6 +59,7 @@ nav ul {
     nav > ul > li {
      /* position: absolute;*/
      width: 20vw;
+     border-radius: 10% 10%;
     }
 
     nav a {
@@ -67,13 +71,16 @@ nav ul {
     }
 
     nav li:hover > a {
-      background-color: #1abc9c;
+      background-color: #FFF176;
+      color:#1565C0;
+      
     }
 
     /* Submenú oculto por defecto */
     nav li ul {
       display: none;
-      background-color: #3e556e;
+      background-color: #FFF176/*#3e556e*/;
+
     }
 
     /* Mostrar submenú al hacer hover sobre el li padre */
@@ -85,6 +92,7 @@ nav ul {
       margin-left: 20vw;
       margin-top: -5.6vh;
       display:block;
+
     }
     nav > ul > li > ul > li > ul > li{
       width: 12vw;
@@ -98,5 +106,5 @@ nav ul {
     }
 
     nav li ul li a:hover {
-      background-color: #16a085;
+      background-color: #FFF176;
     }
