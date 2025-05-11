@@ -2,6 +2,7 @@ body{
 	margin: 0px;
   color:  #37474F;
   font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color:#E3F2FD;
 }
 header {
 	background-color:  #4FC3F7;
@@ -109,3 +110,15 @@ nav ul {
     nav li ul li a:hover {
       background-color: #FFF176;
     }
+#activa{
+    color: #66BB6A;
+    border-color: #66BB6A;
+  }
+#principal{
+  width: 100vw;
+  height: 80vh;
+}
+#contenido{
+  width: 100vw;
+  height: 75vh;
+}
