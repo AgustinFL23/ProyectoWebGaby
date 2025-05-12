@@ -1,8 +1,8 @@
 document.getElementById("loginForm").addEventListener("submit", function (e) {
 	e.preventDefault();
 
-	const usuario = document.getElementById("usuario").value;
-	const contrasena = document.getElementById("contrasena").value;
+	const usuario = document.getElementById("username").value;
+	const contrasena = document.getElementById("password").value;
 	const tipo = document.getElementById("tipo").value;
 
 	const datos = new URLSearchParams();
@@ -10,7 +10,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 	datos.append("contrasena", contrasena);
 	datos.append("tipo", tipo);
 
-	fetch("../PHP/login.php", {
+	fetch("PHP/login.php", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
