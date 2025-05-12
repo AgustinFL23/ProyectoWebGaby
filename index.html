@@ -1,65 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MOCKUP equipo 1 No te tocaba Joshua</title>
-	<link rel="stylesheet" type="text/css" href="CSS/headerNavFooter.css">
-	<link rel="stylesheet" type="text/css" href="CSS/index.css">
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-<header>
-	<img src="Multimedia/Imagenes/logo.png" id="logo">
-	<h1>
-		Apoyo a la educacion primaria
-	</h1>
-</header>
-<nav>
-	<ul>
-		<li>
-			<a href="#">Prueba</a>
-		</li>
-		<li>
-			<ul>
-				<li><a href="#">Dashboard</a></li>
-          		<li><a href="#">Resumen</a></li>
-			</ul>
-			
-		</li>
-	</ul>
-</nav>
-<div id="principal">
-	<div id="contenido"></div>
-	<div id="footer">
-		copyright by Equipo1
-	</div>
-</div>
-<div id="aside">
-	
-	<form>
-		<b>inicio de sesión</b>
-		<br>
-		<label for="username">usuario</label>
-		<br>
-		<input type="text" id="username">
-		<br>
-		<label for="password">Contraseña</label>
-		<br>
-		<input type="password" id="password">
-		<br>
-		<label for="tipo">Tipo de usuario</label>
-		<br>
-		<select id="tipo">
-			<option>Administrador</option>
-			<option>Profesor</option>
-			<option>Alumno</option>
-		</select>
-		<button>enviar</button>
-	</form>
-	<br><br><br><br><br><br>
-	<a href="HTML/Registro.html">Resgistrarse</a>
-	<br>
-	<a href="HTML/ContrasenaOlvidada.html">Olvidaste la contraseña</a>
-</div>
+  <div class="contenedor-login">
+    <header>
+      <div class="logo">LOGO</div>
+      <h1>Aplicación Web Educativa</h1>
+    </header>
+
+    <section class="formulario">
+      <form action="login.php" method="POST">
+        <h2>Inicio de sesión</h2>
+        <input type="text" name="usuario" placeholder="Usuario" required>
+        <input type="email" name="correo" placeholder="Correo electrónico" required>
+        <input type="password" name="contrasena" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+      </form>
+
+      <div class="links">
+        <a href="registrarse.html">Registrarse</a>
+        <a href="recuperar.php">¿Se te olvidó la contraseña?</a>
+      </div>
+    </section>
+
+    <footer>
+            <p>© 2025 MichiSaurios | Todos los derechos reservados 📭 proyectowebgaby@gmail.com</p>
+
+    </footer>
+  </div>
 </body>
 </html>
