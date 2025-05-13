@@ -1,12 +1,12 @@
 document.getElementById("loginForm").addEventListener("submit", function (e) {
 	e.preventDefault();
 
-	const usuario = document.getElementById("username").value;
+	const correo = document.getElementById("correo").value;
 	const contrasena = document.getElementById("password").value;
 	const tipo = document.getElementById("tipo").value;
 
 	const datos = new URLSearchParams();
-	datos.append("usuario", usuario);
+	datos.append("correo", correo);
 	datos.append("contrasena", contrasena);
 	datos.append("tipo", tipo);
 
