@@ -8,6 +8,7 @@
 	<!--Si necesitan por alguna razon moificar principal o contenido haganlo en la hoja de estilos correspondiente a la pagina-->
 	<link rel="stylesheet" type="text/css" href="../CSS/nombrepagina.css">
 	<script src="../Javascript/session.js" defer></script>
+	<script src="../Javascript/examen.js"></script>
 </head>
 <body>
 <header>
@@ -52,7 +53,12 @@
 			<a href="#">Cuarta Opcion</a>
 		</li>
 		<li>
-			<a href="#">Quinta Opcion</a>
+			<a href="#">Evaluaciones</a>
+			<ul id="Examenes">
+				<script>
+					obtener_examenes();
+				</script>
+			</ul>
 		</li>
 	</ul>
 </nav>
@@ -84,5 +90,6 @@ window.onload = function() {
     // Iniciar el control de inactividad
     iniciarControlInactividad();
 };
+</script>
 </body>
 </html>
