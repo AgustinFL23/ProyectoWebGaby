@@ -33,7 +33,8 @@ function obtener_Preguntas() {
 		else{
 			document.getElementsByTagName("title").textContent=data.examen.titulo;
 			const preguntasAleatorias = aleatorizar_Preguntas(data.preguntas);
-            mostrar_Preguntas(preguntasAleatorias);
+			console.log(data.examen.preguntas_por_alumno);
+            mostrar_Preguntas(preguntasAleatorias,data.examen.preguntas_por_alumno);
 		}
 
 	})
@@ -61,11 +62,12 @@ function aleatorizar_Preguntas(preguntas) {
     });
 
 }
-function mostrar_Preguntas(preguntas) {
+function mostrar_Preguntas(preguntas,size) {
 	const formulario = document.getElementById("Cuestionario");
 
     preguntas.forEach((pregunta, index) => {
-        const fieldset = document.createElement("fieldset");
+    	if (index<size) {
+    		const fieldset = document.createElement("fieldset");
         const legend = document.createElement("legend");
         legend.textContent = `Pregunta ${index + 1}: ${pregunta.enunciado}`;
         fieldset.appendChild(legend);
@@ -85,6 +87,8 @@ function mostrar_Preguntas(preguntas) {
         });
 
         formulario.appendChild(fieldset);
+    	}
+        
     });
     const boton = document.createElement("button");
     boton.type = "submit";
