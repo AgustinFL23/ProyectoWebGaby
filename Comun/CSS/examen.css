@@ -16,3 +16,13 @@
 	width: inherit;
 	margin: 0px;
 }
+#Cuestionario button{
+	width: 60vw;
+	height: 5vh;
+	size: 3vh;
+	margin-top: 2vh;
+	margin-left: 7vw;
+	margin-bottom: 2vh;
+	background-color: 	#81C784;
+	border-radius: 40%;
+}
