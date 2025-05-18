@@ -18,14 +18,78 @@ function obtener_examenes() {
 		console.error("Error al obtener examenes",error);
 	});
 }
-function obtener_Preguntas(argument) {
-	fetch("obte.php")
+function obtener_Id_Examen_Desde_URL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
 }
-function aleatorizar_Preguntas(argument) {
-	// body...
+function obtener_Preguntas() {
+	const id=obtener_Id_Examen_Desde_URL();
+	fetch(`../PHP/obtener_preguntas_por_examen.php?id=${id}`)
+	.then(response=>response.json())
+	.then(data=>{
+		if (data.error) {
+			alert(data.error);
+		}
+		else{
+			document.getElementsByTagName("title").textContent=data.examen.titulo;
+			const preguntasAleatorias = aleatorizar_Preguntas(data.preguntas);
+            mostrar_Preguntas(preguntasAleatorias);
+		}
+
+	})
+	.catch(error => {
+       console.error("Error al obtener el examen:", error);
+    });
 }
-function mostrar_Preguntas(argument) {
-	// body...
+function aleatorizar_Preguntas(preguntas) {
+	preguntas = preguntas.sort(() => Math.random() - 0.5);
+	return preguntas.map(p => {
+        const opciones = [
+            { texto: p.opcion1, id: 1 },
+            { texto: p.opcion2, id: 2 },
+            { texto: p.opcion3, id: 3 },
+            { texto: p.opcion4, id: 4 },
+        ];
+
+        const opciones_aleatorias = opciones.sort(() => Math.random() - 0.5);
+
+        return {
+            id: p.id,
+            enunciado: p.enunciado,
+            opciones: opciones_aleatorias
+        };
+    });
+
+}
+function mostrar_Preguntas(preguntas) {
+	const formulario = document.getElementById("Cuestionario");
+
+    preguntas.forEach((pregunta, index) => {
+        const fieldset = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        legend.textContent = `Pregunta ${index + 1}: ${pregunta.enunciado}`;
+        fieldset.appendChild(legend);
+
+        pregunta.opciones.forEach(opcion => {
+            const label = document.createElement("label");
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = `pregunta_${pregunta.id}`;
+            radio.value = opcion.id;
+            radio.id = `respuesta_${pregunta.id}_${opcion.id}`;
+
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(" " + opcion.texto));
+            fieldset.appendChild(label);
+            fieldset.appendChild(document.createElement("br"));
+        });
+
+        formulario.appendChild(fieldset);
+    });
+    const boton = document.createElement("button");
+    boton.type = "submit";
+    boton.textContent = "Enviar respuestas";
+    formulario.appendChild(boton);
 }
 function enviar_Respuestas(argument) {
 	// body...
