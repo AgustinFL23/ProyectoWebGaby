@@ -1,0 +1,351 @@
+<?php
+// Inicializar variables y errores
+$errores = [];
+$datos = [
+  'diasSemana' => '',
+  'diaHoy' => '',
+  'diaAyer' => '',
+  'diaManana' => '',
+  'diaTresDias' => '',
+  'ultimaActividad' => '',
+  'actividadSemanaPasada' => '',
+  'gustosSemanaPasada' => '',
+  'totalAsistencia' => '',
+  'diasSemanaOrden' => '',
+];
+
+// Procesar envío
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Guardar y sanitizar
+    foreach ($datos as $campo => &$valor) {
+        $valor = trim($_POST[$campo] ?? '');
+        if ($valor === '') {
+            $errores[$campo] = "El campo es obligatorio.";
+        }
+    }
+    unset($valor);
+
+    // Validar totalAsistencia número entero positivo
+    if (!empty($datos['totalAsistencia']) && !ctype_digit($datos['totalAsistencia'])) {
+        $errores['totalAsistencia'] = "Debe ser un número entero positivo.";
+    }
+
+    if (empty($errores)) {
+        // Aquí podrías guardar en BD, enviar email, etc.
+        $exito = true;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulario Actividades Semanales en PHP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f7f7f7;
+    }
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 7px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      resize: vertical;
+    }
+    textarea {
+      min-height: 60px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #444;
+    }
+    th {
+      background-color: #006400;
+      color: white;
+      text-align: center;
+      padding: 8px;
+    }
+    td {
+      padding: 6px;
+      text-align: center;
+    }
+    .btn {
+      margin-top: 20px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+    .btn:hover {
+      background-color: #1b5e20;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 3px;
+    }
+    .success-message {
+      color: green;
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Formulario: Actividades y Asistencia Semanal</h1>
+
+<?php if (!empty($exito)): ?>
+  <div class="success-message">¡Formulario enviado correctamente! Gracias.</div>
+<?php endif; ?>
+
+<form method="POST" action="">
+
+  <!-- 1. ¿Qué vamos a hacer hoy? -->
+  <section>
+    <h2>1. ¿Qué vamos a hacer hoy?</h2>
+    <p>Cada día un equipo está encargado de poner en el semanario las actividades que piensan hacer en la escuela.</p>
+
+    <label for="diasSemana">¿Cuáles son los días de la semana? *</label>
+    <textarea id="diasSemana" name="diasSemana"><?= htmlspecialchars($datos['diasSemana']) ?></textarea>
+    <?php if (isset($errores['diasSemana'])): ?>
+      <div class="error-message"><?= $errores['diasSemana'] ?></div>
+    <?php endif; ?>
+
+    <label for="diaHoy">¿Qué día es hoy? *</label>
+    <input type="text" id="diaHoy" name="diaHoy" value="<?= htmlspecialchars($datos['diaHoy']) ?>" />
+    <?php if (isset($errores['diaHoy'])): ?>
+      <div class="error-message"><?= $errores['diaHoy'] ?></div>
+    <?php endif; ?>
+
+    <label for="diaAyer">¿Qué día fue ayer? *</label>
+    <input type="text" id="diaAyer" name="diaAyer" value="<?= htmlspecialchars($datos['diaAyer']) ?>" />
+    <?php if (isset($errores['diaAyer'])): ?>
+      <div class="error-message"><?= $errores['diaAyer'] ?></div>
+    <?php endif; ?>
+
+    <label for="diaManana">¿Qué día será mañana? *</label>
+    <input type="text" id="diaManana" name="diaManana" value="<?= htmlspecialchars($datos['diaManana']) ?>" />
+    <?php if (isset($errores['diaManana'])): ?>
+      <div class="error-message"><?= $errores['diaManana'] ?></div>
+    <?php endif; ?>
+
+    <label for="diaTresDias">¿Qué día será dentro de tres días? *</label>
+    <input type="text" id="diaTresDias" name="diaTresDias" value="<?= htmlspecialchars($datos['diaTresDias']) ?>" />
+    <?php if (isset($errores['diaTresDias'])): ?>
+      <div class="error-message"><?= $errores['diaTresDias'] ?></div>
+    <?php endif; ?>
+  </section>
+
+  <!-- 2. El martes de la semana pasada -->
+  <section>
+    <h2>2. El martes de la semana pasada</h2>
+    <p>Extiendan el diario del grupo al frente del salón y respondan:</p>
+
+    <label for="ultimaActividad">¿Cuál fue la última actividad que se registró? *</label>
+    <textarea id="ultimaActividad" name="ultimaActividad"><?= htmlspecialchars($datos['ultimaActividad']) ?></textarea>
+    <?php if (isset($errores['ultimaActividad'])): ?>
+      <div class="error-message"><?= $errores['ultimaActividad'] ?></div>
+    <?php endif; ?>
+
+    <label for="actividadSemanaPasada">¿Qué se registró la semana pasada? *</label>
+    <textarea id="actividadSemanaPasada" name="actividadSemanaPasada"><?= htmlspecialchars($datos['actividadSemanaPasada']) ?></textarea>
+    <?php if (isset($errores['actividadSemanaPasada'])): ?>
+      <div class="error-message"><?= $errores['actividadSemanaPasada'] ?></div>
+    <?php endif; ?>
+
+    <label for="gustosSemanaPasada">Dibuja o describe lo que más te gustó de la semana pasada: *</label>
+    <textarea id="gustosSemanaPasada" name="gustosSemanaPasada"><?= htmlspecialchars($datos['gustosSemanaPasada']) ?></textarea>
+    <?php if (isset($errores['gustosSemanaPasada'])): ?>
+      <div class="error-message"><?= $errores['gustosSemanaPasada'] ?></div>
+    <?php endif; ?>
+  </section>
+
+  <!-- 3. La lista de asistencia -->
+  <section>
+    <h2>3. La lista de asistencia</h2>
+    <p>En la tabla escribe tu nombre y el de 6 compañeros más. Cada día de la semana coloca una ✓ o una ✗ frente a los nombres, si asistieron o faltaron a clases.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombres *</th>
+          <th>L</th>
+          <th>M</th>
+          <th>X</th>
+          <th>J</th>
+          <th>V</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php for ($i = 0; $i < 7; $i++): ?>
+          <tr>
+            <td><input type="text" placeholder="<?= $i === 0 ? 'Tu nombre' : "Compañero $i" ?>" name="nombre<?= $i ?>" /></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+        <?php endfor; ?>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 4. ¿Qué pasó primero? -->
+  <section>
+    <h2>4. ¿Qué pasó primero?</h2>
+    <p>¡El diario del grupo se ha deshojado! Ayuden al maestro a organizarlo.</p>
+    <label for="ordenActividades">Ordena las hojas (de arriba a abajo):</label>
+    <ul id="ordenActividades" style="list-style: none; padding: 0;">
+      <li draggable="true" id="hoja1" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Cuentos</li>
+      <li draggable="true" id="hoja2" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Matemáticas</li>
+      <li draggable="true" id="hoja3" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Música</li>
+      <li draggable="true" id="hoja4" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Artes</li>
+      <li draggable="true" id="hoja5" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Educación física</li>
+    </ul>
+    <button type="button" onclick="reiniciarHojas()">🔁 Reiniciar orden</button>
+    <button type="button" onclick="validarOrdenHojas()">✅ Validar orden</button>
+  </section>
+
+  <!-- 5. El horario de clases -->
+  <section>
+    <h2>5. El horario de clases</h2>
+    <p>Cada equipo elaborará tiras de papel con las actividades que siempre se repiten el día que les tocó. Péguelas en la cartulina debajo del nombre del día que le corresponde.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Horas</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php for ($h = 7; $h <= 11; $h++): ?>
+          <tr>
+            <td><?= "$h:00 - " . ($h + 1) . ":00" ?></td>
+            <?php for ($d = 0; $d < 5; $d++): ?>
+              <td contenteditable="true"></td>
+            <?php endfor; ?>
+          </tr>
+        <?php endfor; ?>
+      </tbody>
+    </table>
+
+    <label for="actividadesSemana">¿Cuáles son las actividades que más realizan durante la semana?</label>
+    <textarea id="actividadesSemana" name="actividadesSemana" placeholder="Escribe aquí..."><?= htmlspecialchars($datos['actividadesSemana'] ?? '') ?></textarea>
+
+    <label for="diasConocimientoMedio">Escribe en tu cuaderno el nombre de los días que tienes actividades de Conocimiento del Medio.</label>
+    <textarea id="diasConocimientoMedio" name="diasConocimientoMedio" placeholder="Escribe aquí..."><?= htmlspecialchars($datos['diasConocimientoMedio'] ?? '') ?></textarea>
+  </section>
+
+  <button type="submit" class="btn" id="submitBtn">Enviar formulario</button>
+
+</form>
+
+<script>
+  // Tu JavaScript para drag&drop y validación front-end igual que antes
+  const lista = document.getElementById('ordenActividades');
+
+  lista.querySelectorAll('li').forEach(item => {
+    item.addEventListener('dragstart', e => {
+      e.dataTransfer.setData('text/plain', e.target.id);
+    });
+  });
+
+  lista.addEventListener('dragover', e => e.preventDefault());
+
+  lista.addEventListener('drop', e => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text');
+    const dragged = document.getElementById(id);
+    const target = e.target;
+    if (target.tagName === 'LI' && target.parentNode === lista) {
+      lista.insertBefore(dragged, target);
+    } else {
+      lista.appendChild(dragged);
+    }
+  });
+
+  function reiniciarHojas() {
+    const ids = ['hoja1','hoja2','hoja3','hoja4','hoja5'];
+    const lista = document.getElementById('ordenActividades');
+    ids.forEach(id => {
+      lista.appendChild(document.getElementById(id));
+    });
+  }
+
+  function validarOrdenHojas() {
+    const lista = document.getElementById('ordenActividades');
+    const ordenCorrecto = ['hoja1','hoja2','hoja3','hoja4','hoja5'];
+    const ordenActual = Array.from(lista.children).map(li => li.id);
+    if (ordenActual.length !== ordenCorrecto.length) {
+      alert('❌ Faltan hojas por ordenar.');
+      return;
+    }
+    const esCorrecto = ordenActual.every((id, i) => id === ordenCorrecto[i]);
+    alert(esCorrecto ? '🎉 ¡Felicidades! El orden es correcto.' : '❌ El orden no es correcto, inténtalo de nuevo.');
+  }
+
+  document.getElementById('submitBtn').addEventListener('click', function(e) {
+    // Validación front-end simple para evitar enviar vacío
+    const camposObligatorios = [
+      'diasSemana', 'diaHoy', 'diaAyer', 'diaManana', 'diaTresDias',
+      'ultimaActividad', 'actividadSemanaPasada', 'gustosSemanaPasada',
+      'totalAsistencia', 'diasSemanaOrden'
+    ];
+
+    let valido = true;
+
+    camposObligatorios.forEach(id => {
+      const campo = document.getElementById(id);
+      if (!campo.value.trim()) {
+        campo.classList.add('error');
+        valido = false;
+      } else {
+        campo.classList.remove('error');
+      }
+    });
+
+    if (!valido) {
+      alert('Por favor, completa todos los campos obligatorios correctamente.');
+      e.preventDefault();
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
