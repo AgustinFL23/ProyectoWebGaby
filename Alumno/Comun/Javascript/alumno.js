@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 function obtener_examenes() {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -21,11 +22,19 @@ function obtener_examenes(arg) {
         const cadena='Examenes'+String(arg);
         console.log(cadena);
 		const lista= document.getElementById(`Examenes${arg}`);
+=======
+function obtener_examenes() {
+	fetch("../PHP/obtener_examenes.php")
+	.then(response=>response.json())
+	.then(data=>{
+		const lista= document.getElementById('Examenes');
+>>>>>>> eb94f1f (modificaciones en alumno y en la sesion)
 		data.examenes.forEach(
 			item=>{
 				const li=document.createElement('li');
 				const a=document.createElement('a');
 				const id=item.id;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -39,6 +48,9 @@ function obtener_examenes(arg) {
 =======
 				a.href=`?id=${id}`;
 >>>>>>> 98ca4ed (bug arreglado)
+=======
+				a.href=`Examen.html?id=${id}`;
+>>>>>>> eb94f1f (modificaciones en alumno y en la sesion)
 				a.textContent=item.titulo;
 				li.appendChild(a);
 				lista.appendChild(li);
@@ -56,6 +68,7 @@ function obtener_Preguntas() {
 	const id=obtener_Id_Examen_Desde_URL();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	fetch(`PHP/obtener_preguntas_por_examen.php?id=${id}`)
 =======
 	fetch(`../PHP/obtener_preguntas_por_examen.php?id=${id}`)
@@ -63,6 +76,9 @@ function obtener_Preguntas() {
 =======
 	fetch(`PHP/obtener_preguntas_por_examen.php?id=${id}`)
 >>>>>>> 4da2a5b (Alumno funcional)
+=======
+	fetch(`../PHP/obtener_preguntas_por_examen.php?id=${id}`)
+>>>>>>> eb94f1f (modificaciones en alumno y en la sesion)
 	.then(response=>response.json())
 	.then(data=>{
 		if (data.error) {
@@ -100,6 +116,7 @@ function aleatorizar_Preguntas(preguntas) {
     });
 
 }
+<<<<<<< HEAD
 function mostrar_Preguntas(preguntas, size) {
     const formulario = document.getElementById("Cuestionario");
 
@@ -159,6 +176,44 @@ function mostrar_Preguntas(preguntas, size) {
     formulario.appendChild(boton);
 }
 
+=======
+function mostrar_Preguntas(preguntas,size) {
+	const formulario = document.getElementById("Cuestionario");
+
+    preguntas.forEach((pregunta, index) => {
+    	if (index<size) {
+    		const fieldset = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        legend.textContent = `Pregunta ${index + 1}: ${pregunta.enunciado}`;
+        fieldset.appendChild(legend);
+
+        pregunta.opciones.forEach(opcion => {
+            const label = document.createElement("label");
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = `pregunta_${pregunta.id}`;
+            radio.value = opcion.id;
+            radio.id = `respuesta_${pregunta.id}_${opcion.id}`;
+
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(" " + opcion.texto));
+            fieldset.appendChild(label);
+            fieldset.appendChild(document.createElement("br"));
+        });
+
+        formulario.appendChild(fieldset);
+    	}
+        
+    });
+    const boton = document.createElement("button");
+    boton.type = "submit";
+    boton.textContent = "Enviar respuestas";
+    formulario.appendChild(boton);
+}
+function enviar_Respuestas(argument) {
+	// body...
+}
+>>>>>>> eb94f1f (modificaciones en alumno y en la sesion)
 function verificar_Si_Se_Realizo_antes(argument) {
 	// body...
 }
