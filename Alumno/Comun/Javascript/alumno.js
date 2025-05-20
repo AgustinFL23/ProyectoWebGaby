@@ -1,5 +1,5 @@
 function obtener_examenes() {
-	fetch("../PHP/obtener_examenes.php")
+	fetch("Comun/PHP/obtener_examenes.php")
 	.then(response=>response.json())
 	.then(data=>{
 		const lista= document.getElementById('Examenes');
@@ -8,7 +8,7 @@ function obtener_examenes() {
 				const li=document.createElement('li');
 				const a=document.createElement('a');
 				const id=item.id;
-				a.href=`Examen.html?id=${id}`;
+				a.href=`Examen?id=${id}`;
 				a.textContent=item.titulo;
 				li.appendChild(a);
 				lista.appendChild(li);
@@ -24,7 +24,7 @@ function obtener_Id_Examen_Desde_URL() {
 }
 function obtener_Preguntas() {
 	const id=obtener_Id_Examen_Desde_URL();
-	fetch(`../PHP/obtener_preguntas_por_examen.php?id=${id}`)
+	fetch(`PHP/obtener_preguntas_por_examen.php?id=${id}`)
 	.then(response=>response.json())
 	.then(data=>{
 		if (data.error) {
