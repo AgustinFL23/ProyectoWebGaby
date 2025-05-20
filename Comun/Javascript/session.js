@@ -60,7 +60,7 @@ function verificarSesion() {
   console.log('cookie leida')
   if (!sesionActiva) {
     // No hay sesión activa, redirigir al index.html
-    window.location.href = "index.html";
+    window.location.href = "/index.html";
   }
 }
 
@@ -69,7 +69,7 @@ function cerrarSesion() {
   deleteCookie("username");
   deleteCookie("tipoUsuario");
   deleteCookie("sesionActiva");
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
 }
 
 // Control de inactividad
