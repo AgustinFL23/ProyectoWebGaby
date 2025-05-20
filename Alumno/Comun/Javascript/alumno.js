@@ -1,9 +1,13 @@
 function obtener_examenes() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	fetch("../Comun/PHP/obtener_examenes.php")
 =======
 	fetch("../PHP/obtener_examenes.php")
 >>>>>>> d57b4bf (sigamos)
+=======
+	fetch("Comun/PHP/obtener_examenes.php")
+>>>>>>> 4da2a5b (Alumno funcional)
 	.then(response=>response.json())
 	.then(data=>{
 		const lista= document.getElementById('Examenes');
@@ -13,10 +17,14 @@ function obtener_examenes() {
 				const a=document.createElement('a');
 				const id=item.id;
 <<<<<<< HEAD
+<<<<<<< HEAD
 				a.href=`Examen?id=${id}`;
 =======
 				a.href=`Examen.html?id=${id}`;
 >>>>>>> d57b4bf (sigamos)
+=======
+				a.href=`Examen?id=${id}`;
+>>>>>>> 4da2a5b (Alumno funcional)
 				a.textContent=item.titulo;
 				li.appendChild(a);
 				lista.appendChild(li);
@@ -33,10 +41,14 @@ function obtener_Id_Examen_Desde_URL() {
 function obtener_Preguntas() {
 	const id=obtener_Id_Examen_Desde_URL();
 <<<<<<< HEAD
+<<<<<<< HEAD
 	fetch(`PHP/obtener_preguntas_por_examen.php?id=${id}`)
 =======
 	fetch(`../PHP/obtener_preguntas_por_examen.php?id=${id}`)
 >>>>>>> d57b4bf (sigamos)
+=======
+	fetch(`PHP/obtener_preguntas_por_examen.php?id=${id}`)
+>>>>>>> 4da2a5b (Alumno funcional)
 	.then(response=>response.json())
 	.then(data=>{
 		if (data.error) {
