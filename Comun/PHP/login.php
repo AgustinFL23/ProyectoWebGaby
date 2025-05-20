@@ -17,15 +17,7 @@ if ($resultado->num_rows > 0) {
     $_SESSION['tipo'] = $tipo;
     $_SESSION['last_interaction'] = time();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     $redirect = "$tipo";
-=======
-    $redirect = "HTML/$tipo.html";
->>>>>>> a7c21e4 (sigamos)
-=======
-    $redirect = "$tipo";
->>>>>>> d57b4bf (sigamos)
 
     echo json_encode([
         "success" => true,
