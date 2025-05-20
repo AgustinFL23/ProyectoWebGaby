@@ -1,5 +1,9 @@
 function obtener_examenes() {
+<<<<<<< HEAD
 	fetch("../Comun/PHP/obtener_examenes.php")
+=======
+	fetch("Comun/PHP/obtener_examenes.php")
+>>>>>>> 4da2a5b (Alumno funcional)
 	.then(response=>response.json())
 	.then(data=>{
 		const lista= document.getElementById('Examenes');
