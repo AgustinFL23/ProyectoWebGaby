@@ -20,6 +20,9 @@
 	width: inherit;
 	margin: 0px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8d81de1 (Estilos de los examenes terminados, aun falta la funcionalidad de enviar las respuestas)
 }
 #Cuestionario button{
 	width: 60vw;
@@ -30,6 +33,7 @@
 	margin-bottom: 2vh;
 	background-color: 	#81C784;
 	border-radius: 40%;
+<<<<<<< HEAD
 =======
 }
 #contenido{
@@ -37,4 +41,6 @@
 >>>>>>> 920fc0a (merge solucionado?)
 =======
 >>>>>>> 68b3472 (Preguntas capadas y un pequeño cambio de estetica)
+=======
+>>>>>>> 8d81de1 (Estilos de los examenes terminados, aun falta la funcionalidad de enviar las respuestas)
 }
