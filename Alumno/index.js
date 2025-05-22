@@ -1,5 +1,5 @@
 function obtener_examenes() {
-	fetch("../Comun/PHP/obtener_examenes.php")
+	fetch("Comun/PHP/obtener_examenes.php")
 	.then(response=>response.json())
 	.then(data=>{
 		const lista= document.getElementById('Examenes');
