@@ -1,5 +1,6 @@
 #principal{
 	height: fit-content;
+<<<<<<< HEAD
 	width: 100vw;
 }
 #contenido{
@@ -25,4 +26,9 @@
 	margin-bottom: 2vh;
 	background-color: 	#81C784;
 	border-radius: 40%;
+=======
+}
+#contenido{
+	height: fit-content;
+>>>>>>> 920fc0a (merge solucionado?)
 }
