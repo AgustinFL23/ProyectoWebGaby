@@ -3,16 +3,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MOCKUP equipo 1 No te tocaba Joshua</title>
-	<link rel="stylesheet" type="text/css" href="../CSS/headerNavFooter.css">
+	<title>Vista Alumno</title>
+	<link rel="stylesheet" type="text/css" href="../Comun/CSS/headerNavFooter.css">
 	<!--Si necesitan por alguna razon moificar principal o contenido haganlo en la hoja de estilos correspondiente a la pagina-->
 	<link rel="stylesheet" type="text/css" href="../CSS/nombrepagina.css">
+<<<<<<<< HEAD:Alumno/Formulario1.html
 	<script src="../Javascript/session.js" defer></script>
 	<script src="../Javascript/alumno.js"></script>
+========
+	<script src="../Comun/Javascript/session.js" defer></script>
+	<script src="/Comun/Javascript/alumno.js"></script>
+>>>>>>>> d57b4bf (sigamos):Alumno/index.html
 </head>
 <body>
 <header>
-	<img src="../Multimedia/Imagenes/logo.png" id="logo">
+	<img src="../Comun/Multimedia/Imagenes/logo.png" id="logo">
 	<h1>
 		Apoyo a la educacion primaria
 	</h1>
@@ -64,13 +69,41 @@
 </nav>
 <div id="layout">
 	<div id="principal">
+<<<<<<< HEAD:HTML/plantilla.html
 		<div id="contenido"></div>
+=======
+		<div id="contenido">
+			<div id="user-info">
+        Bienvenido, <span id="username-display"></span> 
+        (<span id="tipo-usuario-display"></span>)
+        <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+		</div>
+>>>>>>> eb94f1f (modificaciones en alumno y en la sesion):Alumno/index.html
 		<div id="footer">
 			copyright by Equipo1
 		</div>
 	</div>
+<<<<<<< HEAD:HTML/plantilla.html
 
 </div>
+=======
+>>>>>>> eb94f1f (modificaciones en alumno y en la sesion):Alumno/index.html
 
+</div>
+<script>
+// Al cargar la página
+window.onload = function() {
+    // Verificar si hay una sesión activa
+    verificarSesion();
+    
+    // Mostrar información del usuario
+    document.getElementById("username-display").textContent = getCookie("username");
+    document.getElementById("tipo-usuario-display").textContent = getCookie("tipoUsuario");
+    
+    // Iniciar el control de inactividad
+    iniciarControlInactividad();
+};
+</script>
 </body>
 </html>
