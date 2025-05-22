@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Formulario de Matemáticas - Conteo y Patrones hasta 50</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  h2 {
+    color: #2a7ae2;
+    border-bottom: 2px solid #2a7ae2;
+    padding-bottom: 5px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 4px;
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 90%;
+    padding: 6px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+  table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #aaa;
+    padding: 8px;
+    text-align: center;
+  }
+  .small-input {
+    width: 60px;
+  }
+  .question {
+    margin-top: 12px;
+  }
+  button {
+    background-color: #2a7ae2;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #1e5bb8;
+  }
+</style>
+</head>
+<body>
+
+<h1>Formulario: Conteo, Patrones y Números hasta 50</h1>
+
+<form id="formulario" onsubmit="return validarFormulario()">
+
+<section id="actividad1">
+  <h2>1. ¿Cómo contamos?</h2>
+<p>En equipos cuenten cuántas cosas hay en la caja de sorpresas(ten en cuenta que las que ya estan en la caja no se encuentran en la mesa):</p>
+<img src="../Multimedia/Imagenes/contamos.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="cantidad_cosas">¿Cuántas cosas hay en la caja?</label>
+  <input type="number" id="cantidad_cosas" name="cantidad_cosas" min="0" required />
+
+  <label for="resultado_mismo">¿Obtuuvieron el mismo resultado? ¿Cuántos grupos de 10 objetos formaron?</label>
+  <input type="text" id="resultado_mismo" name="resultado_mismo" placeholder="Respuesta" required />
+
+  <label for="cosas_sueltas">Si quedaron cosas sueltas, ¿cuántas son?</label>
+  <input type="number" id="cosas_sueltas" name="cosas_sueltas" min="0" required />
+
+  <label for="grupos_de_5">Intercambien su caja con la de otro equipo y cuenten las cosas formando grupos de 5. ¿Cuántas son?</label>
+  <input type="number" id="grupos_de_5" name="grupos_de_5" min="0" required />
+
+  <label for="forma_mejor" class="question">¿De las diferentes formas de contar que utilizaron, cuál les parece mejor? ¿Por qué?</label>
+  <textarea id="forma_mejor" name="forma_mejor" rows="3" placeholder="Escribe aquí tu respuesta..." required></textarea>
+
+  <label for="total_cosas" class="question">Junten las cosas de las cajas de los dos equipos. ¿Cuántas cosas hay en total?</label>
+  <input type="number" id="total_cosas" name="total_cosas" min="0" required />
+
+</section>
+
+<section id="actividad2">
+  <h2>2. El costurero</h2>
+<img src="../Multimedia/Imagenes/costurero.png" alt="costuras" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="objetos_costurero">Escribe cuántos objetos de cada tipo hay en el costurero (usa números):</label>
+  <textarea id="objetos_costurero" name="objetos_costurero" rows="3" placeholder="Ejemplo: Hilos = 10, Botones = 20, ..." required></textarea>
+
+  <label for="estrategias_contar">¿Qué estrategias utilizaron para contar?</label>
+  <textarea id="estrategias_contar" name="estrategias_contar" rows="2" required></textarea>
+
+<img src="../Multimedia/Imagenes/botones.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="color_mayor">¿De qué colores hay más botones: azules o amarillos?</label>
+  <input type="text" id="color_mayor" name="color_mayor" placeholder="Azules / Amarillos" required />
+</section>
+
+<section id="actividad3">
+  <h2>3. Patrones por todos lados</h2>
+<img src="../Multimedia/Imagenes/cambia.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+
+  <label for="patron_cambia_repite">¿Qué cambia y qué se repite en los patrones?</label>
+  <textarea id="patron_cambia_repite" name="patron_cambia_repite" rows="3" required></textarea>
+
+  <label for="figuras_faltan">Describe las figuras o números que faltan (escribe la secuencia):</label>
+  <textarea id="figuras_faltan" name="figuras_faltan" rows="2" placeholder="Ejemplo: 3,4,1,2,3,..." required></textarea>
+
+  <label for="como_supieron_siguiente">¿Cómo supieron qué figura o número sigue?</label>
+  <textarea id="como_supieron_siguiente" name="como_supieron_siguiente" rows="2" required></textarea>
+</section>
+
+
+<section id="actividad5">
+  <h2>4. Arregla el relajo</h2>
+<img src="../Multimedia/Imagenes/cajas.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label>Llena la tabla sobre cuantas cajas de 10 productos, cuantos productos quedan sueltos y total:</label>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cajas de 10</th>
+        <th>Productos sueltos</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Lápices</td>
+        <td><input type="number" name="lapices_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="lapices_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="lapices_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Gomas</td>
+        <td><input type="number" name="gomas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="gomas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="gomas_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Reglas</td>
+        <td><input type="number" name="reglas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="reglas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="reglas_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Sacapuntas</td>
+        <td><input type="number" name="sacapuntas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="sacapuntas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="sacapuntas_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Canicas</td>
+        <td><input type="number" name="canicas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="canicas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="canicas_total" min="0" required class="small-input"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <label for="plumas_sueltas_rosa">¿Cuántas plumas sueltas tendrá Rosa si llena una caja con 28 plumas?</label>
+  <input type="number" id="plumas_sueltas_rosa" name="plumas_sueltas_rosa" min="0" required />
+
+  <label for="plumas_sueltas_silvia">¿Cuántas plumas sueltas quedarán si Silvia llena 2 cajas?</label>
+  <input type="number" id="plumas_sueltas_silvia" name="plumas_sueltas_silvia" min="0" required />
+
+  <label for="como_supieron_cajas">¿Cómo supieron cuántas cajas se pueden llenar con cada producto?</label>
+  <textarea id="como_supieron_cajas" name="como_supieron_cajas" rows="3" required></textarea>
+</section>
+
+<section id="actividad6">
+  <h2>5. ¿Cuántas fichas faltan?</h2>
+
+<img src="../Multimedia/Imagenes/ficha1.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="fichas_10_actual">¿Cuántas fichas son?:</label>
+  <input type="number" id="fichas_10_actual" name="fichas_10_actual" min="0" required />
+  <label for="fichas_10_faltan">¿Cuántas faltan para completar 10?</label>
+  <input type="number" id="fichas_10_faltan" name="fichas_10_faltan" min="0" required />
+
+<img src="../Multimedia/Imagenes/ficha2.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="fichas_20_actual">¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_20_actual" name="fichas_20_actual" min="0" required />
+  <label for="fichas_20_faltan">¿Cuántas faltan para completar 20?</label>
+  <input type="number" id="fichas_20_faltan" name="fichas_20_faltan" min="0" required />
+
+<img src="../Multimedia/Imagenes/ficha3.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label for="fichas_30_actual"> ¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_30_actual" name="fichas_30_actual" min="0" required />
+  <label for="fichas_30_faltan">¿Cuántas faltan para completar 30?</label>
+  <input type="number" id="fichas_30_faltan" name="fichas_30_faltan" min="0" required />
+
+<img src="../Multimedia/Imagenes/ficha4.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label for="fichas_40_actual">¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_40_actual" name="fichas_40_actual" min="0" required />
+  <label for="fichas_40_faltan">¿Cuántas faltan para completar 40?</label>
+  <input type="number" id="fichas_40_faltan" name="fichas_40_faltan" min="0" required />
+  <img src="../Multimedia/Imagenes/ficha5.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label for="fichas_50_actual">¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_50_actual" name="fichas_50_actual" min="0" required />
+  <label for="fichas_50_faltan">¿Cuántas faltan para completar 50?</label>
+  <input type="number" id="fichas_50_faltan" name="fichas_50_faltan" min="0" required />
+
+  <label for="falta_28_40">¿Cuánto le falta al 28 para llegar al 40?</label>
+  <input type="number" id="falta_28_40" name="falta_28_40" min="0" required />
+
+  <label for="falta_13_50">¿Cuánto le falta al 13 para llegar al 50?</label>
+  <input type="number" id="falta_13_50" name="falta_13_50" min="0" required />
+
+  <label for="falta_19_30">¿Cuánto le falta al 19 para llegar al 30?</label>
+  <input type="number" id="falta_19_30" name="falta_19_30" min="0" required />
+
+  <label for="como_encontraron_falta">¿Cómo lo hicieron para encontrar lo que le falta?</label>
+  <textarea id="como_encontraron_falta" name="como_encontraron_falta" rows="3" required></textarea>
+
+  <label for="numero_faltan_12">¿A qué número le faltan 12 para llegar a 50?</label>
+  <input type="number" id="numero_faltan_12" name="numero_faltan_12" min="0" required />
+</section>
+
+<section id="actividad7">
+  <h2>6. Junto y sumo 10</h2>
+
+  <label>Resuelve las siguientes sumas:</label>
+  <label for="res_3_7">3 + 7 = </label>
+  <input type="number" id="res_3_7" name="res_3_7" min="0" max="10" required class="small-input" />
+  
+  <label for="res_8_2">8 + 2 = </label>
+  <input type="number" id="res_8_2" name="res_8_2" min="0" max="10" required class="small-input" />
+  
+  <label for="res_9_1">9 + 1 = </label>
+  <input type="number" id="res_9_1" name="res_9_1" min="0" max="10" required class="small-input" />
+  
+  <label for="res_5_5">5 + 5 = </label>
+  <input type="number" id="res_5_5" name="res_5_5" min="0" max="10" required class="small-input" />
+  
+  <label for="res_4_6">4 + 6 = </label>
+  <input type="number" id="res_4_6" name="res_4_6" min="0" max="10" required class="small-input" />
+
+  <label for="parejas_que_dan_10">¿Qué parejas de números dan 10 al sumarse?</label>
+  <textarea id="parejas_que_dan_10" name="parejas_que_dan_10" rows="2" required></textarea>
+
+ <img src="../Multimedia/Imagenes/tabla.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="resultado_36x10">Usa la tabla para encontrar el resultado de 36 + 10 y escríbelo:</label>
+  <input type="number" id="resultado_36x10" name="resultado_36x10" min="0" required />
+
+  <label>Anota de cada número cuál es el resultado de sumarle 10:</label>
+  <label for="res_12_10">12 + 10 = </label>
+  <input type="number" id="res_12_10" name="res_12_10" min="0" required />
+
+  <label for="res_34_10">34 + 10 = </label>
+  <input type="number" id="res_34_10" name="res_34_10" min="0" required />
+
+  <label for="res_27_10">27 + 10 = </label>
+  <input type="number" id="res_27_10" name="res_27_10" min="0" required />
+
+  <label for="res_40_10">40 + 10 = </label>
+  <input type="number" id="res_40_10" name="res_40_10" min="0" required />
+
+  <label for="res_8_10">8 + 10 = </label>
+  <input type="number" id="res_8_10" name="res_8_10" min="0" required />
+
+</section>
+
+
+
+
+<button type="submit">Enviar respuestas</button>
+</form>
+
+<script>
+  function validarFormulario() {
+
+    return true;
+  }
+</script>
+
+</body>
+</html>
