@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 function obtener_examenes() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+function obtener_examenes(arg) {
+>>>>>>> be62e51 (falta añadir lo de los examenes correctamente revisar el js correspondiente)
 	fetch("../Comun/PHP/obtener_examenes.php")
 =======
 	fetch("../PHP/obtener_examenes.php")
@@ -14,7 +18,7 @@ function obtener_examenes() {
 >>>>>>> 08bef71 (La verdad no reuerdo que hice aqui)
 	.then(response=>response.json())
 	.then(data=>{
-		const lista= document.getElementById('Examenes');
+		const lista= document.getElementById('Examenes${arg}');
 		data.examenes.forEach(
 			item=>{
 				const li=document.createElement('li');

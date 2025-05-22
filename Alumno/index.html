@@ -38,44 +38,100 @@
 	<!--Cambien esta lista por el menu que se vaya a usar para esa pagina, si alguna seccion del menu esta seleccionada denle la class de activa-->
 	<ul>
 		<li >
-			<a href="#" id="activa">Primer opcion</a>
+			<a href="#" id="activa">Principal</a>
 		</li>
 		<li>
-			<a href="#">Segunda opción</a>
+			<a href="#">Perfil</a>
 			<ul>
 				<li>
-					<a href="#">Dashboard</a>
+					<a href="#">Consultar datos</a>
 				</li>
           		<li>
-          			<a href="#">Resumen</a>
-          			<ul>
-          				<li>
-          					<a href="">Prueba</a>
-          				</li>
-          				<li>
-          					<a href="">Prueba 2</a>
-          				</li>
-          			</ul>
-          		</li>
-          		<li>
-          			<a href="#"> mas opciones</a>
+          			<a href="#">Editar Datos</a>
           		</li>
 			</ul>
 			
 		</li>
 		<li>
-			<a href="#">Tercer Opcion</a>
+			<a href="#">Bloque</a>
+			<ul>
+				<li>
+					<a href=""> 1er Bloque</a>
+					<ul>
+						<li><a>Libros</a>
+							<ul>
+							</ul>
+						</li>
+						<li>
+							<a>Videos</a>
+						</li>
+						<li>
+							<a>Formularios</a>
+						</li>
+						<li>
+							<a>Examenes</a>
+							<ul id="Examenes1">
+								<script>
+									obtener_examenes(1);
+								</script>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href=""> 2do Bloque</a>
+					<ul>
+						<li><a>Libros</a>
+							<ul>
+							</ul>
+						</li>
+						<li>
+							<a>Videos</a>
+						</li>
+						<li>
+							<a>Formularios</a>
+						</li>
+						<li>
+							<a>Examenes</a>
+							<ul id="Examenes2">
+								<script>
+									obtener_examenes(2);
+								</script>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href=""> 3er Bloque</a>
+					<ul>
+						<li><a>Libros</a>
+							<ul>
+							</ul>
+						</li>
+						<li>
+							<a>Videos</a>
+						</li>
+						<li>
+							<a>Formularios</a>
+						</li>
+						<li>
+							<a>Examenes</a>
+							<ul id="Examenes3">
+								<script>
+									obtener_examenes(3);
+								</script>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</li>
 		<li>
 			<a href="#">Cuarta Opcion</a>
 		</li>
 		<li>
 			<a href="#">Evaluaciones</a>
-			<ul id="Examenes">
-				<script>
-					obtener_examenes();
-				</script>
-			</ul>
+			
 		</li>
 	</ul>
 </nav>
