@@ -6,9 +6,15 @@
 	<title>Vista Alumno</title>
 	<link rel="stylesheet" type="text/css" href="../CSS/headerNavFooter.css">
 	<!--Si necesitan por alguna razon moificar principal o contenido haganlo en la hoja de estilos correspondiente a la pagina-->
+<<<<<<< HEAD
 	<link rel="stylesheet" type="text/css" href="../CSS/examen.css">
 	<script src="../Javascript/session.js" defer></script>
 	<script src="../Javascript/alumno.js"></script>
+=======
+	<link rel="stylesheet" type="text/css" href="../CSS/nombrepagina.css">
+	<script src="../Javascript/session.js" defer></script>
+	<script src="../Javascript/examen.js"></script>
+>>>>>>> 46c989a (merge solucionado?)
 </head>
 <body>
 <header>
@@ -21,7 +27,11 @@
 	<!--Cambien esta lista por el menu que se vaya a usar para esa pagina, si alguna seccion del menu esta seleccionada denle la class de activa-->
 	<ul>
 		<li >
+<<<<<<< HEAD
 			<a href="#" >Primer opcion</a>
+=======
+			<a href="#" id="activa">Primer opcion</a>
+>>>>>>> 46c989a (merge solucionado?)
 		</li>
 		<li>
 			<a href="#">Segunda opción</a>
@@ -53,7 +63,11 @@
 			<a href="#">Cuarta Opcion</a>
 		</li>
 		<li>
+<<<<<<< HEAD
 			<a href="# "id="activa">Evaluaciones</a>
+=======
+			<a href="#">Evaluaciones</a>
+>>>>>>> 46c989a (merge solucionado?)
 			<ul id="Examenes">
 				<script>
 					obtener_examenes();
@@ -65,6 +79,7 @@
 <div id="layout">
 	<div id="principal">
 		<div id="contenido">
+<<<<<<< HEAD
 			<form id="Cuestionario">
 				<script>
 					obtener_Preguntas();
@@ -81,5 +96,33 @@
 
 </div>
 
+=======
+			<div id="user-info">
+        Bienvenido, <span id="username-display"></span> 
+        (<span id="tipo-usuario-display"></span>)
+        <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+		</div>
+		<div id="footer">
+			copyright by Equipo1
+		</div>
+	</div>
+
+</div>
+<script>
+// Al cargar la página
+window.onload = function() {
+    // Verificar si hay una sesión activa
+    verificarSesion();
+    
+    // Mostrar información del usuario
+    document.getElementById("username-display").textContent = getCookie("username");
+    document.getElementById("tipo-usuario-display").textContent = getCookie("tipoUsuario");
+    
+    // Iniciar el control de inactividad
+    iniciarControlInactividad();
+};
+</script>
+>>>>>>> 46c989a (merge solucionado?)
 </body>
 </html>
