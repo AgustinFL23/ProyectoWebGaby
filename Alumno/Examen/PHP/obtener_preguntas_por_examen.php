@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 require_once '../../../Comun/PHP/conexion.php'; 
+=======
+require_once '../../../../Comun/PHP/conexion.php'; 
+>>>>>>> 08bef71 (La verdad no reuerdo que hice aqui)
 
 header('Content-Type: application/json');
 
