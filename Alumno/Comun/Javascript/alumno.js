@@ -22,6 +22,7 @@ function obtener_examenes() {
 				const id=item.id;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				a.href=`Examen?id=${id}`;
 =======
 				a.href=`Examen.html?id=${id}`;
@@ -29,6 +30,9 @@ function obtener_examenes() {
 =======
 				a.href=`Examen?id=${id}`;
 >>>>>>> 4da2a5b (Alumno funcional)
+=======
+				a.href=`?id=${id}`;
+>>>>>>> 98ca4ed (bug arreglado)
 				a.textContent=item.titulo;
 				li.appendChild(a);
 				lista.appendChild(li);
