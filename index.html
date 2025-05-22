@@ -4,12 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>MOCKUP equipo 1 No te tocaba Joshua</title>
-	<link rel="stylesheet" type="text/css" href="CSS/headerNavFooter.css">
-	<link rel="stylesheet" type="text/css" href="CSS/index.css">
+	<link rel="stylesheet" type="text/css" href="Comun/CSS/headerNavFooter.css">
+	<link rel="stylesheet" type="text/css" href="Comun/CSS/index.css">
+	<script src="Comun/Javascript/login.js" defer></script>
+	<script src="Comun/Javascript/session.js" defer></script>
 </head>
 <body>
 <header>
-	<img src="Multimedia/Imagenes/logo.png" id="logo">
+	<img src="Comun/Multimedia/Imagenes/logo.png" id="logo">
 	<h1>
 		Apoyo a la educacion primaria
 	</h1>
@@ -17,49 +19,83 @@
 <nav>
 	<ul>
 		<li>
-			<a href="#">Prueba</a>
+			<a href="#">Primer opcion</a>
 		</li>
 		<li>
+			<a href="#">Segunda opción</a>
 			<ul>
-				<li><a href="#">Dashboard</a></li>
-          		<li><a href="#">Resumen</a></li>
+				<li>
+					<a href="#">Dashboard</a>
+				</li>
+          		<li>
+          			<a href="#">Resumen</a>
+          			<ul>
+          				<li>
+          					<a href="">Prueba</a>
+          				</li>
+          				<li>
+          					<a href="">Prueba 2</a>
+          				</li>
+          			</ul>
+          		</li>
+          		<li>
+          			<a href="#"> mas opciones</a>
+          		</li>
 			</ul>
 			
 		</li>
+		<li>
+			<a href="#">Tercer Opcion</a>
+		</li>
+		<li>
+			<a href="#">Cuarta Opcion</a>
+		</li>
+		<li>
+			<a href="#">Quinta Opcion</a>
+		</li>
 	</ul>
 </nav>
-<div id="principal">
-	<div id="contenido"></div>
-	<div id="footer">
-		copyright by Equipo1
+<div id="layout">
+	<div id="principal">
+		<div id="contenido"></div>
+		<div id="footer">
+			copyright by Equipo1
+		</div>
+	</div>
+	<div id="aside">
+		
+		<form id="loginForm" method="post" action="#" onsubmit="return validarLogin()">
+			<b>Inicio de sesión</b>
+			<br>
+			<label for="username">Correo</label>
+			<br>
+			<input type="email" id="correo" name="correo">
+			<br>
+			<br>
+			<label for="password">Contraseña</label>
+			<br>
+			<input type="password" id="password" name="password">
+			<br>
+			<br>
+			<label for="tipo">Tipo de usuario</label>
+			<br>
+			<select id="tipo" name="tipo">
+				<option>Administrador</option>
+				<option>Profesor</option>
+				<option>Alumno</option>
+			</select>
+			<br>
+			<br><br>
+			<button type="submit">Enviar</button>
+		</form>
+		<br><br><br>
+		<a href="/Registro">Registrarse</a>
+		<br>
+		<br>
+		<a href="/ContrasenaOlvidada">Olvidaste la contraseña</a>
 	</div>
 </div>
-<div id="aside">
-	
-	<form>
-		<b>inicio de sesión</b>
-		<br>
-		<label for="username">usuario</label>
-		<br>
-		<input type="text" id="username">
-		<br>
-		<label for="password">Contraseña</label>
-		<br>
-		<input type="password" id="password">
-		<br>
-		<label for="tipo">Tipo de usuario</label>
-		<br>
-		<select id="tipo">
-			<option>Administrador</option>
-			<option>Profesor</option>
-			<option>Alumno</option>
-		</select>
-		<button>enviar</button>
-	</form>
-	<br><br><br><br><br><br>
-	<a href="HTML/Registro.html">Resgistrarse</a>
-	<br>
-	<a href="HTML/ContrasenaOlvidada.html">Olvidaste la contraseña</a>
-</div>
+
+
 </body>
 </html>
