@@ -69,7 +69,11 @@ function cerrarSesion() {
   deleteCookie("username");
   deleteCookie("tipoUsuario");
   deleteCookie("sesionActiva");
+<<<<<<< HEAD
   window.location.href = "../index.html";
+=======
+  window.location.href = "/index.html";
+>>>>>>> a7c21e4 (sigamos)
 }
 
 // Control de inactividad
