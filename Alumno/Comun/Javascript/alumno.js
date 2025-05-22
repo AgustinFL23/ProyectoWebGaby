@@ -1,6 +1,7 @@
 function obtener_examenes() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	fetch("../Comun/PHP/obtener_examenes.php")
 =======
 	fetch("../PHP/obtener_examenes.php")
@@ -8,6 +9,9 @@ function obtener_examenes() {
 =======
 	fetch("Comun/PHP/obtener_examenes.php")
 >>>>>>> 4da2a5b (Alumno funcional)
+=======
+	fetch("../Comun/PHP/obtener_examenes.php")
+>>>>>>> 08bef71 (La verdad no reuerdo que hice aqui)
 	.then(response=>response.json())
 	.then(data=>{
 		const lista= document.getElementById('Examenes');
