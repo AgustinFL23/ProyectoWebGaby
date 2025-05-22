@@ -1,5 +1,5 @@
 <?php
-require_once '../../../../Comun/PHP/conexion.php'; 
+require_once '../../../Comun/PHP/conexion.php'; 
 
 header('Content-Type: application/json');
 
