@@ -22,8 +22,12 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 	datos.append("contrasena", contrasena);
 	datos.append("tipo", tipo);
 
+<<<<<<< HEAD
 	fetch("login.php", {
 >>>>>>> 23c40b5 (aplicado)
+=======
+	fetch("../PHP/login.php", {
+>>>>>>> 91e8c03 (aplicado)
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
