@@ -3,20 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Vista Alumno</title>
-	<link rel="stylesheet" type="text/css" href="../../Comun/CSS/headerNavFooter.css">
-<<<<<<< HEAD
-=======
-	<link rel="stylesheet" type="text/css" href="../Comun/CSS/style_boton_formulario.css">
->>>>>>> RamaGus
+	<title>MOCKUP equipo 1 No te tocaba Joshua</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/headerNavFooter.css">
 	<!--Si necesitan por alguna razon moificar principal o contenido haganlo en la hoja de estilos correspondiente a la pagina-->
-	<link rel="stylesheet" type="text/css" href="CSS/examen.css">
-	<script src="../../Comun/Javascript/session.js" defer></script>
-	<script src="../Comun/Javascript/alumno.js"></script>
+	<link rel="stylesheet" type="text/css" href="../CSS/nombrepagina.css">
+	<script src="../Javascript/session.js" defer></script>
+	<script src="../Javascript/alumno.js"></script>
 </head>
 <body>
 <header>
-	<img src="../../Comun/Multimedia/Imagenes/logo.png" id="logo">
+	<img src="../Multimedia/Imagenes/logo.png" id="logo">
 	<h1>
 		Apoyo a la educacion primaria
 	</h1>
@@ -25,7 +21,7 @@
 	<!--Cambien esta lista por el menu que se vaya a usar para esa pagina, si alguna seccion del menu esta seleccionada denle la class de activa-->
 	<ul>
 		<li >
-			<a href="#" >Primer opcion</a>
+			<a href="#" id="activa">Primer opcion</a>
 		</li>
 		<li>
 			<a href="#">Segunda opción</a>
@@ -57,7 +53,7 @@
 			<a href="#">Cuarta Opcion</a>
 		</li>
 		<li>
-			<a href="# "id="activa">Evaluaciones</a>
+			<a href="#">Evaluaciones</a>
 			<ul id="Examenes">
 				<script>
 					obtener_examenes();
@@ -68,19 +64,10 @@
 </nav>
 <div id="layout">
 	<div id="principal">
-		<div id="contenido">
-			<form id="Cuestionario">
-				<script>
-					obtener_Preguntas();
-				</script>
-				
-			</form>
-			
-    	</div>
-	</div>
-	<div id="footer">
+		<div id="contenido"></div>
+		<div id="footer">
 			copyright by Equipo1
-	</div>
+		</div>
 	</div>
 
 </div>
