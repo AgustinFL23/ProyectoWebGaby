@@ -16,9 +16,7 @@ if ($resultado->num_rows > 0) {
     $_SESSION['correo'] = $correo;
     $_SESSION['tipo'] = $tipo;
     $_SESSION['last_interaction'] = time();
-
     $redirect = "$tipo";
-
     echo json_encode([
         "success" => true,
         "redirect" => $redirect
