@@ -1,9 +1,13 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 require_once '../../../Comun/PHP/conexion.php'; 
 =======
 require_once '../../../../Comun/PHP/conexion.php'; 
 >>>>>>> 08bef71 (La verdad no reuerdo que hice aqui)
+=======
+require_once '../../../Comun/PHP/conexion.php'; 
+>>>>>>> 409a489 (Ya funciona el examen)
 
 header('Content-Type: application/json');
 
