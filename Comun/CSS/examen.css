@@ -1,6 +1,9 @@
 #principal{
 	height: fit-content;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 68b3472 (Preguntas capadas y un pequeño cambio de estetica)
 	width: 100vw;
 }
 #contenido{
@@ -16,6 +19,7 @@
 #Cuestionario fieldset{
 	width: inherit;
 	margin: 0px;
+<<<<<<< HEAD
 }
 #Cuestionario button{
 	width: 60vw;
@@ -31,4 +35,6 @@
 #contenido{
 	height: fit-content;
 >>>>>>> 920fc0a (merge solucionado?)
+=======
+>>>>>>> 68b3472 (Preguntas capadas y un pequeño cambio de estetica)
 }
