@@ -1,4 +1,5 @@
 -- phpMyAdmin SQL Dump
+<<<<<<< HEAD
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
@@ -6,6 +7,15 @@
 -- Tiempo de generación: 18-05-2025 a las 07:32:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
+=======
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 17-05-2025 a las 03:59:45
+-- Versión del servidor: 5.7.36
+-- Versión de PHP: 7.4.26
+>>>>>>> 46c989a (merge solucionado?)
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +30,11 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto_web`
 --
+<<<<<<< HEAD
+=======
+CREATE DATABASE IF NOT EXISTS `proyecto_web` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `proyecto_web`;
+>>>>>>> 46c989a (merge solucionado?)
 
 -- --------------------------------------------------------
 
@@ -27,6 +42,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `examenes`
 --
 
+<<<<<<< HEAD
 CREATE TABLE `examenes` (
   `id` int(11) NOT NULL,
   `titulo` varchar(100) DEFAULT NULL,
@@ -43,6 +59,17 @@ INSERT INTO `examenes` (`id`, `titulo`, `preguntas_por_alumno`, `creado_por`, `f
 (1, 'Examen de Historia', 5, 'Clau', '2025-05-16 23:50:30'),
 (2, 'Examen de Matemáticas', 5, 'Clau', '2025-05-16 23:50:30'),
 (3, 'Examen de Biología', 5, 'Clau', '2025-05-16 23:50:30');
+=======
+DROP TABLE IF EXISTS `examenes`;
+CREATE TABLE IF NOT EXISTS `examenes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(100) DEFAULT NULL,
+  `preguntas_por_alumno` int(11) DEFAULT NULL,
+  `creado_por` varchar(50) DEFAULT NULL,
+  `fecha_creacion` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> 46c989a (merge solucionado?)
 
 -- --------------------------------------------------------
 
@@ -50,6 +77,7 @@ INSERT INTO `examenes` (`id`, `titulo`, `preguntas_por_alumno`, `creado_por`, `f
 -- Estructura de tabla para la tabla `preguntas`
 --
 
+<<<<<<< HEAD
 CREATE TABLE `preguntas` (
   `id` int(11) NOT NULL,
   `id_examen` int(11) DEFAULT NULL,
@@ -90,6 +118,21 @@ INSERT INTO `preguntas` (`id`, `id_examen`, `enunciado`, `opcion1`, `opcion2`, `
 (22, 3, '¿Qué animales ponen huevos?', 'Mamíferos', 'Ovovivíparos', 'Ovíparos', 'Vivíparos', 3),
 (23, 3, '¿Cuál es el gas que exhalamos?', 'Oxígeno', 'Dióxido de carbono', 'Nitrógeno', 'Hidrógeno', 2),
 (24, 3, '¿Qué contiene el ADN?', 'Proteínas', 'Genes', 'Vitaminas', 'Hormonas', 2);
+=======
+DROP TABLE IF EXISTS `preguntas`;
+CREATE TABLE IF NOT EXISTS `preguntas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_examen` int(11) DEFAULT NULL,
+  `enunciado` text,
+  `opcion1` text,
+  `opcion2` text,
+  `opcion3` text,
+  `opcion4` text,
+  `respuesta_correcta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_examen` (`id_examen`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> 46c989a (merge solucionado?)
 
 -- --------------------------------------------------------
 
@@ -97,6 +140,7 @@ INSERT INTO `preguntas` (`id`, `id_examen`, `enunciado`, `opcion1`, `opcion2`, `
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+<<<<<<< HEAD
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
@@ -104,6 +148,19 @@ CREATE TABLE `usuarios` (
   `contrasena` varchar(255) NOT NULL,
   `tipo` enum('alumno','profesor','administrador') NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+=======
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(50) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `contrasena` varchar(255) NOT NULL,
+  `tipo` enum('alumno','profesor','administrador') NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usuario` (`usuario`),
+  UNIQUE KEY `correo` (`correo`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+>>>>>>> 46c989a (merge solucionado?)
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -114,6 +171,7 @@ INSERT INTO `usuarios` (`id`, `usuario`, `correo`, `contrasena`, `tipo`) VALUES
 (2, 'Gus', 'afl231001@gmail.com', 'Gus123', 'alumno'),
 (3, 'Clau', 'mezosandovalclaudia130@gmail.com', 'Clau123', 'profesor'),
 (4, 'joshua', '', '1234', 'alumno');
+<<<<<<< HEAD
 
 --
 -- Índices para tablas volcadas
@@ -161,6 +219,8 @@ ALTER TABLE `preguntas`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+=======
+>>>>>>> 46c989a (merge solucionado?)
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
