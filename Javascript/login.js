@@ -2,12 +2,16 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 	e.preventDefault();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c5bc234 (cookie iniciada)
 	const correo = document.getElementById("correo").value;
 	const contrasena = document.getElementById("password").value;
 	const tipo = document.getElementById("tipo").value;
 
 	const datos = new URLSearchParams();
 	datos.append("correo", correo);
+<<<<<<< HEAD
 	datos.append("contrasena", contrasena);
 	datos.append("tipo", tipo);
 
@@ -19,6 +23,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
 	const datos = new URLSearchParams();
 	datos.append("usuario", usuario);
+=======
+>>>>>>> c5bc234 (cookie iniciada)
 	datos.append("contrasena", contrasena);
 	datos.append("tipo", tipo);
 
