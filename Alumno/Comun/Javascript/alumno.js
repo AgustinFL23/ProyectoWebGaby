@@ -18,7 +18,9 @@ function obtener_examenes(arg) {
 >>>>>>> 08bef71 (La verdad no reuerdo que hice aqui)
 	.then(response=>response.json())
 	.then(data=>{
-		const lista= document.getElementById('Examenes${arg}');
+        const cadena='Examenes'+String(arg);
+        console.log(cadena);
+		const lista= document.getElementById(`Examenes${arg}`);
 		data.examenes.forEach(
 			item=>{
 				const li=document.createElement('li');
