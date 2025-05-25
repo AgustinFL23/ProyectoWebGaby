@@ -2,7 +2,9 @@ function obtener_examenes(arg) {
 	fetch("../Comun/PHP/obtener_examenes.php")
 	.then(response=>response.json())
 	.then(data=>{
-		const lista= document.getElementById('Examenes${arg}');
+        const cadena='Examenes'+String(arg);
+        console.log(cadena);
+		const lista= document.getElementById(`Examenes${arg}`);
 		data.examenes.forEach(
 			item=>{
 				const li=document.createElement('li');
