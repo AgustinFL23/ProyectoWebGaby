@@ -1,0 +1,149 @@
+body{
+	margin: 0px;
+  color:  #37474F;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color:#E3F2FD;
+}
+header {
+	background-color:  #4FC3F7;
+	height: 15vh;
+	width: 100vw;
+  color: white;
+
+}
+header img {
+	width: 10vh;
+	height: 10vh;
+	padding: 10px;
+	padding-top: 2.5vh;
+	float: left;
+
+}
+header h1{
+	margin-top: 0px;
+	padding-top: 5vh;
+  font-size: 5vh;
+	padding-bottom: 0px;
+}
+nav{
+	width: 100vw;
+	height: 5vh;
+	 background-color: #3e556e;
+      color: #ecf0f1;
+	padding-top: 0px;
+  position: sticky;
+}
+nav > ul {
+	margin: 0px;
+  display: flex;
+  gap: 0vw;
+  padding: 0;
+  width: 100vw;
+}
+nav li{
+
+	list-style: none;
+}
+#footer{
+	height: 5vh;
+	width: 100%;
+	background-color: black;
+	color: white;
+	font-size: 2vh;
+}
+
+nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav > ul > li {
+     /* position: absolute;*/
+     width: 20vw;
+     border-radius: 10% 10%;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid #2c3e50;
+    }
+
+    nav li:hover > a {
+      background-color: #FFF176;
+      color:#1565C0;
+      
+    }
+
+    /* Submenú oculto por defecto */
+    nav li ul {
+      display: none;
+      background-color: #FFF176/*#3e556e*/;
+
+    }
+
+    /* Mostrar submenú al hacer hover sobre el li padre */
+    nav li:hover > ul {
+      display:block;
+    }
+    nav > ul > li > ul > li:hover > ul{
+      position: absolute;
+      margin-left: 20vw;
+      margin-top: -5.6vh;
+      display:block;
+
+    }
+    nav > ul > li > ul > li > ul > li{
+      width: 12vw;
+      padding: 0;
+    } 
+
+    nav li ul li a {
+      padding-left: 10px;
+      background-color: #3e556e;
+      color: #ecf0f1;
+    }
+
+    nav li ul li a:hover {
+      background-color: #FFF176;
+    }
+nav > ul > li > ul > li > ul > li:hover > ul {
+  position: absolute;
+  margin-left: 12vw; 
+  margin-top: -5vh; 
+  display: block;
+}
+
+nav > ul > li > ul > li > ul > li > ul > li {
+  width: 12vw;
+  padding: 0;
+}
+
+nav > ul > li > ul > li > ul > li > ul > li a {
+  background-color: #3e556e;
+  color: #ecf0f1;
+}
+
+nav > ul > li > ul > li > ul > li > ul > li a:hover {
+  background-color: #FFF176;
+  color: #1565C0;
+}
+#activa{
+    color: #66BB6A;
+    border-color: #66BB6A;
+  }
+#principal{
+  width: 100vw;
+  height: 80vh;
+}
+#contenido{
+  width: 100vw;
+  height: 75vh;
+}
+#layout {
+  width: 100vw;
+  height: 80vh;
+}
