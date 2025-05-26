@@ -17,12 +17,11 @@
 	margin: 0px;
 }
 #Cuestionario button{
-	width: 60vw;
-	height: 5vh;
+	width: 16vw;
+	height: 7vh;
 	size: 3vh;
 	margin-top: 2vh;
-	margin-left: 7vw;
+	margin-left: 27vw;
 	margin-bottom: 2vh;
-	background-color: 	#81C784;
-	border-radius: 40%;
+	border-radius: .5%;
 }
