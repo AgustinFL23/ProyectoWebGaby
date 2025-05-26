@@ -93,9 +93,10 @@ function mostrar_Preguntas(preguntas, size) {
     });
 
     const boton = document.createElement("button");
-    boton.type = "submit";
+    boton.type = "button";
     boton.className = "continue-application";
     boton.id = "submitBtn";
+    boton.setAttribute('onclick', 'enviar_Respuestas(event)');
 
     boton.innerHTML = `
         <div>
@@ -122,9 +123,6 @@ function mostrar_Preguntas(preguntas, size) {
     formulario.appendChild(boton);
 }
 
-function enviar_Respuestas(argument) {
-	// body...
-}
 function verificar_Si_Se_Realizo_antes(argument) {
 	// body...
 }
