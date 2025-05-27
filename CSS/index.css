@@ -1,16 +1,16 @@
 #principal{
 	float: left;
 	width: 70vw;
-	height: 75vh;
+	height: 80vh;
 
 }
 #contenido{
 	width: 70vw;
-	height: 70vh;
+	height: 75vh;
 }
 #aside{
 	width: 30vw;
-	height: 75vh;
+	height: 80vh;
 	align-content: center;
 	background-color: lightsteelblue;
 
