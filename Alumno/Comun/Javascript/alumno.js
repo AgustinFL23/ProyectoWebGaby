@@ -1,14 +1,16 @@
-function obtener_examenes() {
+function obtener_examenes(arg) {
 	fetch("../Comun/PHP/obtener_examenes.php")
 	.then(response=>response.json())
 	.then(data=>{
-		const lista= document.getElementById('Examenes');
+        const cadena='Examenes'+String(arg);
+        console.log(cadena);
+		const lista= document.getElementById(`Examenes${arg}`);
 		data.examenes.forEach(
 			item=>{
 				const li=document.createElement('li');
 				const a=document.createElement('a');
 				const id=item.id;
-				a.href=`Examen?id=${id}`;
+				a.href=`?id=${id}`;
 				a.textContent=item.titulo;
 				li.appendChild(a);
 				lista.appendChild(li);
@@ -92,9 +94,10 @@ function mostrar_Preguntas(preguntas, size) {
     });
 
     const boton = document.createElement("button");
-    boton.type = "submit";
+    boton.type = "button";
     boton.className = "continue-application";
     boton.id = "submitBtn";
+    boton.setAttribute('onclick', 'enviar_Respuestas(event)');
 
     boton.innerHTML = `
         <div>
@@ -121,9 +124,6 @@ function mostrar_Preguntas(preguntas, size) {
     formulario.appendChild(boton);
 }
 
-function enviar_Respuestas(argument) {
-	// body...
-}
 function verificar_Si_Se_Realizo_antes(argument) {
 	// body...
 }
