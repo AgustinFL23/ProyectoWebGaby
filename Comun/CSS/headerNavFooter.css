@@ -92,7 +92,7 @@ nav ul {
     nav > ul > li > ul > li:hover > ul{
       position: absolute;
       margin-left: 20vw;
-      margin-top: -5.6vh;
+      margin-top: -5.0vh;
       display:block;
 
     }
@@ -102,7 +102,7 @@ nav ul {
     } 
 
     nav li ul li a {
-      padding-left: 30px;
+      padding-left: 10px;
       background-color: #3e556e;
       color: #ecf0f1;
     }
@@ -110,10 +110,35 @@ nav ul {
     nav li ul li a:hover {
       background-color: #FFF176;
     }
+nav > ul > li > ul > li > ul > li:hover > ul {
+  position: absolute;
+  margin-left: 12vw; 
+  margin-top: -5vh; 
+  display: block;
+}
+
+nav > ul > li > ul > li > ul > li > ul > li {
+  width: 12vw;
+  padding: 0;
+}
+
+nav > ul > li > ul > li > ul > li > ul > li a {
+  background-color: #3e556e;
+  color: #ecf0f1;
+}
+
+nav > ul > li > ul > li > ul > li > ul > li a:hover {
+  background-color: #FFF176;
+  color: #1565C0;
+}
 #activa{
     color: #66BB6A;
     border-color: #66BB6A;
   }
+.activa{
+  color: #66BB6A;
+  border-color: #66BB6A;
+}
 #principal{
   width: 100vw;
   height: 80vh;
