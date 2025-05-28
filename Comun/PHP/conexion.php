@@ -1,8 +1,9 @@
 <?php
+
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "proyecto_web";
+$db = "sistema_academico";
 
 $conn = new mysqli($host, $user, $pass, $db);
 

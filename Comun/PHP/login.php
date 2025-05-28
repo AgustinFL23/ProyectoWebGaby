@@ -1,14 +1,15 @@
 <?php
+
 session_start();
 include 'conexion.php';
 
 $correo = $_POST['correo'] ?? '';
-$contrasena = $_POST['contrasena'] ?? '';
+$contraseña = $_POST['contraseña'] ?? '';
 $tipo = $_POST['tipo'] ?? '';
 
-$sql = "SELECT * FROM usuarios WHERE correo=? AND contrasena=? AND tipo=?";
+$sql = "SELECT * FROM usuario WHERE correo=? AND contraseña=? /*AND tipo=?*/";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sss", $correo, $contrasena, $tipo);
+$stmt->bind_param("ss", $correo, $contraseña /*,$tipo*/);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
