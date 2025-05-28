@@ -124,5 +124,6 @@ function mostrar_Preguntas(preguntas, size) {
 }
 
 function verificar_Si_Se_Realizo_antes(argument) {
-	// body...
+	// body..
 }
+

@@ -1,9 +1,16 @@
 <?php
+<<<<<<< HEAD
 
 $host = "localhost";
 $user = "root";
 $pass = "";
 $db = "sistema_academico";
+=======
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "proyecto_web";
+>>>>>>> master
 
 $conn = new mysqli($host, $user, $pass, $db);
 
