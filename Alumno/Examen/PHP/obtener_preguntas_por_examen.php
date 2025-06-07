@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once '../../../Comun/PHP/conexion.php'; 
 
 header('Content-Type: application/json');
@@ -10,7 +12,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id_examen = intval($_GET['id']);
 
-$sql_examen = "SELECT * FROM examenes WHERE id = ?";
+$sql_examen = "SELECT * FROM examen WHERE id_examen = ?";
 $stmt_examen = $conn->prepare($sql_examen);
 $stmt_examen->bind_param("i", $id_examen);
 $stmt_examen->execute();
@@ -41,8 +43,6 @@ $response = [
 ];
 
 echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-<<<<<<< HEAD
+
 ?>
-=======
-?>
->>>>>>> master
+
