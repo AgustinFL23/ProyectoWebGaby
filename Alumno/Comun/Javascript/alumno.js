@@ -20,12 +20,12 @@ function obtener_examenes(arg) {
 		console.error("Error al obtener examenes",error);
 	});
 }
-function obtener_Id_Examen_Desde_URL() {
+function obtener_Id_Desde_URL() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id');
 }
 function obtener_Preguntas() {
-	const id=obtener_Id_Examen_Desde_URL();
+	const id=obtener_Id_Desde_URL();
 	fetch(`PHP/obtener_preguntas_por_examen.php?id=${id}`)
 	.then(response=>response.json())
 	.then(data=>{
