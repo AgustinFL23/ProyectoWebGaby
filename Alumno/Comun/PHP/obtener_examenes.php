@@ -1,9 +1,8 @@
 <?php
 require_once '../../../Comun/PHP/conexion.php'; 
-
 header('Content-Type: application/json');
 
-$sql = "SELECT * FROM examenes";
+$sql = "SELECT * FROM examen";
 $result = $conn->query($sql);
 
 $examenes = [];
