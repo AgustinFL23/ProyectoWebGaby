@@ -6,31 +6,125 @@
     <title>Formularios Alumno</title>
     <link rel="stylesheet" type="text/css" href="../../Comun/CSS/headerNavFooter.css">
     <style>
-        /* Contenedor principal del iframe de formularios */
+        /* CONTENEDORES PRINCIPALES - RESPONSIVOS */
+        #principal{
+    height: fit-content;
+    width: 100vw;
+}
+#contenido{
+    height: fit-content;
+    width: 100vw;
+}
         #contenedor-formularios {
-            padding: 20px;
+            padding: 2vw;
             background-color: #f9f9f9;
             border-radius: 8px;
-            margin: 20px auto;
-            max-width: 800px;
+            margin: 2vw auto;
+            max-width: 95vw;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
-        /* Estilo para el título de los formularios */
+
+        /* ÁREA DE FORMULARIOS - ADAPTABLE */
+        #area-formularios {
+            min-height: 50vh;
+            padding: 2.5vw;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 2px solid #e1e1e1;
+        }
+
+        /* PREVIEW DE FORMULARIOS - RESPONSIVO */
+        .preview-formulario {
+            width: 100%;
+            min-height: 20vh;
+            margin: 1.5vw 0;
+            padding: 1.5vw;
+            background-color: #f0f8ff;
+            border: 1px solid #d0e3ff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .preview-formulario h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            padding-bottom: 1vh;
+            border-bottom: 1px solid #d0e3ff;
+            font-size: clamp(16px, 2vw, 22px);
+        }
+
+        .preview-contenido {
+            padding: 1vw;
+            background-color: white;
+            border-radius: 3px;
+            margin-top: 1vh;
+            font-size: clamp(14px, 1.6vw, 18px);
+        }
+
+        /* TÍTULOS RESPONSIVOS */
         .titulo-formularios {
             color: #2c3e50;
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
+            margin-bottom: 3vh;
+            font-size: clamp(20px, 3vw, 28px);
+            padding-bottom: 1vh;
+            border-bottom: 2px solid #eaeaea;
         }
-        
-        /* Espacio reservado para los formularios */
-        #area-formularios {
-            min-height: 300px;
-            border: 2px dashed #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            background-color: #fff;
+
+        /* BOTONES ADAPTABLES */
+        .boton-ver-formulario {
+            padding: 1vh 2vw;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: clamp(14px, 1.6vw, 18px);
+            margin-top: 1vh;
+            transition: background-color 0.3s;
+        }
+
+        .boton-ver-formulario:hover {
+            background-color: #2980b9;
+        }
+
+        /* IFRAME COMPLETAMENTE RESPONSIVO */
+        .frame-formularios-alumno {
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        }
+
+        /* MEDIA */
+        @media (max-width: 768px) {
+            #contenedor-formularios {
+                padding: 3vw;
+                margin: 3vw auto;
+            }
+            
+            #area-formularios {
+                padding: 4vw;
+                min-height: 60vh;
+            }
+             
+            .preview-formulario {
+                padding: 3vw;
+                min-height: 25vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .preview-formulario h3 {
+                font-size: 18px;
+            }
+            
+            .preview-contenido {
+                font-size: 16px;
+            }
         }
     </style>
     <script src="../../Comun/Javascript/session.js" defer></script>
