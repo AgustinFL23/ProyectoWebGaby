@@ -8,6 +8,14 @@
     <link rel="stylesheet" type="text/css" href="./CSS/nombrepagina.css">
     <style>
         /* CONTENEDORES PRINCIPALES - RESPONSIVOS */
+        #principal{
+    height: fit-content;
+    width: 100vw;
+}
+#contenido{
+    height: fit-content;
+    width: 100vw;
+}
         #contenedor-formularios {
             padding: 2vw;
             background-color: #f9f9f9;
@@ -216,29 +224,8 @@
             <div id="contenedor-formularios">
                 <h1 class="titulo-formularios">Formularios del Alumno</h1>
                 <div id="area-formularios">
-                    <div class="preview-formulario">
-                        <h3>Formulario de Datos Personales</h3>
-                        <div class="preview-contenido">
-                            <p>Actualice su información personal, dirección y datos de contacto</p>
-                            <button class="boton-ver-formulario">Abrir formulario</button>
-                        </div>
-                    </div>
-
-                    <div class="preview-formulario">
-                        <h3>Preferencias de Aprendizaje</h3>
-                        <div class="preview-contenido">
-                            <p>Configure sus preferencias de estudio y notificaciones</p>
-                            <button class="boton-ver-formulario">Abrir formulario</button>
-                        </div>
-                    </div>
-
-                    <div class="preview-formulario">
-                        <h3>Encuesta de Satisfacción</h3>
-                        <div class="preview-contenido">
-                            <p>Comparta su opinión sobre nuestra plataforma educativa</p>
-                            <button class="boton-ver-formulario">Abrir formulario</button>
-                        </div>
-                    </div>
+                    <iframe src="404.html" class="frame-formularios-alumno"></iframe>
+                    <script>Mostrar_Formulario()</script>
                 </div>
             </div>
         </div>

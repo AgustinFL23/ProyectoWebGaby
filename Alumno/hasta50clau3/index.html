@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Formulario de Matemáticas - Conteo y Patrones hasta 50</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  h2 {
+    color: #2a7ae2;
+    border-bottom: 2px solid #2a7ae2;
+    padding-bottom: 5px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 4px;
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 90%;
+    padding: 6px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+  table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #aaa;
+    padding: 8px;
+    text-align: center;
+  }
+  .small-input {
+    width: 60px;
+  }
+  .question {
+    margin-top: 12px;
+  }
+  button {
+    background-color: #2a7ae2;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #1e5bb8;
+  }
+</style>
+</head>
+<body>
+
+<h1>Conteo, Patrones y Números hasta 50</h1>
+
+<form id="formulario" onsubmit="return validarFormulario()">
+
+<section id="actividad1">
+  <h2>1. ¿Cómo contamos?</h2>
+<p>Cuenta cuántas cosas hay en la caja sorpresa(ten en cuenta que las que ya estan en la caja no se encuentran en la mesa):</p>
+<img src="contamos.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="cantidad_cosas">¿Cuántas cosas hay en la caja?</label>
+  <input type="number" id="cantidad_cosas" name="cantidad_cosas" min="0" required />
+
+  <label for="resultado_mismo">¿Obtuuvieron el mismo resultado? ¿Cuántos grupos de 10 objetos formaron?</label>
+  <input type="text" id="resultado_mismo" name="resultado_mismo" placeholder="Respuesta" required />
+
+  <label for="cosas_sueltas">Si quedaron cosas sueltas, ¿cuántas son?</label>
+  <input type="number" id="cosas_sueltas" name="cosas_sueltas" min="0" required />
+
+  <label for="grupos_de_5">Intercambien su caja con la de otro equipo y cuenten las cosas formando grupos de 5. ¿Cuántas son?</label>
+  <input type="number" id="grupos_de_5" name="grupos_de_5" min="0" required />
+
+  <label for="forma_mejor" class="question">¿De las diferentes formas de contar que existen, cuál les parece mejor? ¿Por qué?</label>
+  <textarea id="forma_mejor" name="forma_mejor" rows="3" placeholder="Escribe aquí tu respuesta..." required></textarea>
+
+  <label for="total_cosas" class="question">Junten las cosas de las cajas de los dos equipos. ¿Cuántas cosas hay en total?</label>
+  <input type="number" id="total_cosas" name="total_cosas" min="0" required />
+
+</section>
+
+<section id="actividad2">
+  <h2>2. El costurero</h2>
+<img src="costurero.png" alt="costuras" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="objetos_costurero">Escribe cuántos objetos de cada tipo hay en el costurero (usa números):</label>
+  <textarea id="objetos_costurero" name="objetos_costurero" rows="3" placeholder="Ejemplo: Hilos = 10, Botones = 20, ..." required></textarea>
+
+  <label for="estrategias_contar">¿Qué estrategias utilizaste para contar?</label>
+  <textarea id="estrategias_contar" name="estrategias_contar" rows="2" required></textarea>
+
+<img src="botones.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="color_mayor">¿De qué colores hay más botones: azules o amarillos?</label>
+  <input type="text" id="color_mayor" name="color_mayor" placeholder="Azules / Amarillos" required />
+</section>
+
+<section id="actividad3">
+  <h2>3. Patrones por todos lados</h2>
+<img src="cambia.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+
+  <label for="patron_cambia_repite">¿Qué cambia y qué se repite en los patrones?</label>
+  <textarea id="patron_cambia_repite" name="patron_cambia_repite" rows="3" required></textarea>
+
+  <label for="figuras_faltan">Describe las figuras o números que faltan (escribe la secuencia):</label>
+  <textarea id="figuras_faltan" name="figuras_faltan" rows="2" placeholder="Ejemplo: 3,4,1,2,3,..." required></textarea>
+
+  <label for="como_supieron_siguiente">¿Cómo sabias qué figura o número sigue?</label>
+  <textarea id="como_supieron_siguiente" name="como_supieron_siguiente" rows="2" required></textarea>
+</section>
+
+
+<section id="actividad5">
+  <h2>4. Arregla el relajo</h2>
+<img src="cajas.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label>Llena la tabla sobre cuantas cajas de 10 productos, cuantos productos quedan sueltos y total:</label>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cajas de 10</th>
+        <th>Productos sueltos</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Lápices</td>
+        <td><input type="number" name="lapices_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="lapices_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="lapices_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Gomas</td>
+        <td><input type="number" name="gomas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="gomas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="gomas_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Reglas</td>
+        <td><input type="number" name="reglas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="reglas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="reglas_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Sacapuntas</td>
+        <td><input type="number" name="sacapuntas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="sacapuntas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="sacapuntas_total" min="0" required class="small-input"></td>
+      </tr>
+      <tr>
+        <td>Canicas</td>
+        <td><input type="number" name="canicas_cajas" min="0" required class="small-input"></td>
+        <td><input type="number" name="canicas_sueltos" min="0" required class="small-input"></td>
+        <td><input type="number" name="canicas_total" min="0" required class="small-input"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <label for="plumas_sueltas_rosa">¿Cuántas plumas sueltas tendrá Rosa si llena una caja con 28 plumas?</label>
+  <input type="number" id="plumas_sueltas_rosa" name="plumas_sueltas_rosa" min="0" required />
+
+  <label for="plumas_sueltas_silvia">¿Cuántas plumas sueltas quedarán si Silvia llena 2 cajas?</label>
+  <input type="number" id="plumas_sueltas_silvia" name="plumas_sueltas_silvia" min="0" required />
+
+  <label for="como_supieron_cajas">¿Cómo supieron cuántas cajas se pueden llenar con cada producto?</label>
+  <textarea id="como_supieron_cajas" name="como_supieron_cajas" rows="3" required></textarea>
+</section>
+
+<section id="actividad6">
+  <h2>5. ¿Cuántas fichas faltan?</h2>
+
+<img src="ficha1.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="fichas_10_actual">¿Cuántas fichas son?:</label>
+  <input type="number" id="fichas_10_actual" name="fichas_10_actual" min="0" required />
+  <label for="fichas_10_faltan">¿Cuántas faltan para completar 10?</label>
+  <input type="number" id="fichas_10_faltan" name="fichas_10_faltan" min="0" required />
+
+<img src="ficha2.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="fichas_20_actual">¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_20_actual" name="fichas_20_actual" min="0" required />
+  <label for="fichas_20_faltan">¿Cuántas faltan para completar 20?</label>
+  <input type="number" id="fichas_20_faltan" name="fichas_20_faltan" min="0" required />
+
+<img src="ficha3.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label for="fichas_30_actual"> ¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_30_actual" name="fichas_30_actual" min="0" required />
+  <label for="fichas_30_faltan">¿Cuántas faltan para completar 30?</label>
+  <input type="number" id="fichas_30_faltan" name="fichas_30_faltan" min="0" required />
+
+<img src="ficha4.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label for="fichas_40_actual">¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_40_actual" name="fichas_40_actual" min="0" required />
+  <label for="fichas_40_faltan">¿Cuántas faltan para completar 40?</label>
+  <input type="number" id="fichas_40_faltan" name="fichas_40_faltan" min="0" required />
+  <img src="ficha5.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+  <label for="fichas_50_actual">¿Cuántas fichas son?</label>
+  <input type="number" id="fichas_50_actual" name="fichas_50_actual" min="0" required />
+  <label for="fichas_50_faltan">¿Cuántas faltan para completar 50?</label>
+  <input type="number" id="fichas_50_faltan" name="fichas_50_faltan" min="0" required />
+
+  <label for="falta_28_40">¿Cuánto le falta al 28 para llegar al 40?</label>
+  <input type="number" id="falta_28_40" name="falta_28_40" min="0" required />
+
+  <label for="falta_13_50">¿Cuánto le falta al 13 para llegar al 50?</label>
+  <input type="number" id="falta_13_50" name="falta_13_50" min="0" required />
+
+  <label for="falta_19_30">¿Cuánto le falta al 19 para llegar al 30?</label>
+  <input type="number" id="falta_19_30" name="falta_19_30" min="0" required />
+
+  <label for="como_encontraron_falta">¿Cómo lo hicieron para encontrar lo que le falta?</label>
+  <textarea id="como_encontraron_falta" name="como_encontraron_falta" rows="3" required></textarea>
+
+  <label for="numero_faltan_12">¿A qué número le faltan 12 para llegar a 50?</label>
+  <input type="number" id="numero_faltan_12" name="numero_faltan_12" min="0" required />
+</section>
+
+<section id="actividad7">
+  <h2>6. Junto y sumo 10</h2>
+
+  <label>Resuelve las siguientes sumas:</label>
+  <label for="res_3_7">3 + 7 = </label>
+  <input type="number" id="res_3_7" name="res_3_7" min="0" max="10" required class="small-input" />
+  
+  <label for="res_8_2">8 + 2 = </label>
+  <input type="number" id="res_8_2" name="res_8_2" min="0" max="10" required class="small-input" />
+  
+  <label for="res_9_1">9 + 1 = </label>
+  <input type="number" id="res_9_1" name="res_9_1" min="0" max="10" required class="small-input" />
+  
+  <label for="res_5_5">5 + 5 = </label>
+  <input type="number" id="res_5_5" name="res_5_5" min="0" max="10" required class="small-input" />
+  
+  <label for="res_4_6">4 + 6 = </label>
+  <input type="number" id="res_4_6" name="res_4_6" min="0" max="10" required class="small-input" />
+
+  <label for="parejas_que_dan_10">¿Qué parejas de números dan 10 al sumarse?</label>
+  <textarea id="parejas_que_dan_10" name="parejas_que_dan_10" rows="2" required></textarea>
+
+ <img src="tabla.png" alt="Niños contando objetos" style="max-width:100%; height:auto; margin-bottom: 20px;" />
+
+  <label for="resultado_36x10">Usa la tabla para encontrar el resultado de 36 + 10 y escríbelo:</label>
+  <input type="number" id="resultado_36x10" name="resultado_36x10" min="0" required />
+
+  <label>Anota de cada número cuál es el resultado de sumarle 10:</label>
+  <label for="res_12_10">12 + 10 = </label>
+  <input type="number" id="res_12_10" name="res_12_10" min="0" required />
+
+  <label for="res_34_10">34 + 10 = </label>
+  <input type="number" id="res_34_10" name="res_34_10" min="0" required />
+
+  <label for="res_27_10">27 + 10 = </label>
+  <input type="number" id="res_27_10" name="res_27_10" min="0" required />
+
+  <label for="res_40_10">40 + 10 = </label>
+  <input type="number" id="res_40_10" name="res_40_10" min="0" required />
+
+  <label for="res_8_10">8 + 10 = </label>
+  <input type="number" id="res_8_10" name="res_8_10" min="0" required />
+
+</section>
+
+<button type="submit">Enviar respuestas</button>
+</form>
+
+<script>
+  function validarFormulario() {
+    // Código de validación completo aquí:
+    const form = document.getElementById('formulario');
+
+    function mostrarError(mensaje, campo) {
+      alert(mensaje);
+      campo.focus();
+    }
+
+    // Sección 1
+    const cantidadCosas = form.cantidad_cosas;
+    if(!cantidadCosas.value || cantidadCosas.value < 0) return mostrarError('Ingresa una cantidad válida en "¿Cuántas cosas hay en la caja?"', cantidadCosas);
+
+    const resultadoMismo = form.resultado_mismo;
+    if(!resultadoMismo.value.trim()) return mostrarError('Responde si obtuvieron el mismo resultado', resultadoMismo);
+
+    const cosasSueltas = form.cosas_sueltas;
+    if(!cosasSueltas.value || cosasSueltas.value < 0) return mostrarError('Ingresa un número válido en "Si quedaron cosas sueltas..."', cosasSueltas);
+
+    const gruposDe5 = form.grupos_de_5;
+    if(!gruposDe5.value || gruposDe5.value < 0) return mostrarError('Ingresa un número válido en "Intercambien su caja..."', gruposDe5);
+
+    const formaMejor = form.forma_mejor;
+    if(!formaMejor.value.trim()) return mostrarError('Escribe cuál forma de contar les parece mejor', formaMejor);
+
+    const totalCosas = form.total_cosas;
+    if(!totalCosas.value || totalCosas.value < 0) return mostrarError('Ingresa un número válido en "Junten las cosas..."', totalCosas);
+
+    // Sección 2
+    const objetosCosturero = form.objetos_costurero;
+    if(!objetosCosturero.value.trim()) return mostrarError('Escribe cuántos objetos hay en el costurero', objetosCosturero);
+
+    const estrategiasContar = form.estrategias_contar;
+    if(!estrategiasContar.value.trim()) return mostrarError('Describe las estrategias para contar', estrategiasContar);
+
+    const colorMayor = form.color_mayor;
+    if(!colorMayor.value.trim()) return mostrarError('Responde cuál color tiene más botones', colorMayor);
+
+    // Sección 3
+    const patronCambiaRepite = form.patron_cambia_repite;
+    if(!patronCambiaRepite.value.trim()) return mostrarError('Describe qué cambia y qué se repite en los patrones', patronCambiaRepite);
+
+    const figurasFaltan = form.figuras_faltan;
+    if(!figurasFaltan.value.trim()) return mostrarError('Describe las figuras o números que faltan', figurasFaltan);
+
+    const comoSupieronSiguiente = form.como_supieron_siguiente;
+    if(!comoSupieronSiguiente.value.trim()) return mostrarError('Explica cómo supieron qué figura o número sigue', comoSupieronSiguiente);
+
+    // Sección 4: validar total = cajas * 10 + sueltos
+    function validarProducto(cajasName, sueltosName, totalName, nombre) {
+      const cajas = form[cajasName];
+      const sueltos = form[sueltosName];
+      const total = form[totalName];
+
+      if(!cajas.value || cajas.value < 0) return mostrarError(`Ingresa un número válido en cajas para ${nombre}`, cajas);
+      if(!sueltos.value || sueltos.value < 0) return mostrarError(`Ingresa un número válido en productos sueltos para ${nombre}`, sueltos);
+      if(!total.value || total.value < 0) return mostrarError(`Ingresa un número válido en total para ${nombre}`, total);
+
+      if(parseInt(total.value) !== parseInt(cajas.value)*10 + parseInt(sueltos.value)) {
+        return mostrarError(`El total de ${nombre} no coincide con cajas x 10 + sueltos`, total);
+      }
+      return true;
+    }
+
+    if(!validarProducto('lapices_cajas', 'lapices_sueltos', 'lapices_total', 'Lápices')) return false;
+    if(!validarProducto('gomas_cajas', 'gomas_sueltos', 'gomas_total', 'Gomas')) return false;
+    if(!validarProducto('reglas_cajas', 'reglas_sueltos', 'reglas_total', 'Reglas')) return false;
+    if(!validarProducto('sacapuntas_cajas', 'sacapuntas_sueltos', 'sacapuntas_total', 'Sacapuntas')) return false;
+    if(!validarProducto('canicas_cajas', 'canicas_sueltos', 'canicas_total', 'Canicas')) return false;
+
+    const plumasRosa = form.plumas_sueltas_rosa;
+    if(!plumasRosa.value || plumasRosa.value < 0) return mostrarError('Ingresa un número válido para plumas sueltas de Rosa', plumasRosa);
+
+    const plumasSilvia = form.plumas_sueltas_silvia;
+    if(!plumasSilvia.value || plumasSilvia.value < 0) return mostrarError('Ingresa un número válido para plumas sueltas de Silvia', plumasSilvia);
+
+    const comoSupieronCajas = form.como_supieron_cajas;
+    if(!comoSupieronCajas.value.trim()) return mostrarError('Explica cómo supieron cuántas cajas se pueden llenar', comoSupieronCajas);
+
+    // Sección 5
+    function validarFaltan(actualName, faltanName, nombre) {
+      const actual = form[actualName];
+      const faltan = form[faltanName];
+      if(!actual.value || actual.value < 0) return mostrarError(`Ingresa un número válido en ${nombre} actual`, actual);
+      if(!faltan.value || faltan.value < 0) return mostrarError(`Ingresa un número válido en ${nombre} faltan`, faltan);
+      return true;
+    }
+
+    if(!validarFaltan('fichas_10_actual', 'fichas_10_faltan', 'fichas 10')) return false;
+    if(!validarFaltan('fichas_20_actual', 'fichas_20_faltan', 'fichas 20')) return false;
+    if(!validarFaltan('fichas_30_actual', 'fichas_30_faltan', 'fichas 30')) return false;
+    if(!validarFaltan('fichas_40_actual', 'fichas_40_faltan', 'fichas 40')) return false;
+    if(!validarFaltan('fichas_50_actual', 'fichas_50_faltan', 'fichas 50')) return false;
+
+    const falta28a40 = form.falta_28_40;
+    if(!falta28a40.value || falta28a40.value < 0) return mostrarError('Ingresa un número válido para "¿Cuánto le falta al 28 para llegar al 40?"', falta28a40);
+
+    const falta13a50 = form.falta_13_50;
+    if(!falta13a50.value || falta13a50.value < 0) return mostrarError('Ingresa un número válido para "¿Cuánto le falta al 13 para llegar al 50?"', falta13a50);
+
+    const falta19a30 = form.falta_19_30;
+    if(!falta19a30.value || falta19a30.value < 0) return mostrarError('Ingresa un número válido para "¿Cuánto le falta al 19 para llegar al 30?"', falta19a30);
+
+    const comoEncontraronFalta = form.como_encontraron_falta;
+    if(!comoEncontraronFalta.value.trim()) return mostrarError('Explica cómo hicieron para encontrar lo que le falta', comoEncontraronFalta);
+
+    const numeroFaltan12 = form.numero_faltan_12;
+    if(!numeroFaltan12.value || numeroFaltan12.value < 0) return mostrarError('Ingresa un número válido para "¿A qué número le faltan 12 para llegar a 50?"', numeroFaltan12);
+
+    // Sección 6
+    const res3_7 = form.res_3_7;
+    if(!res3_7.value) return mostrarError('Completa la suma 3 + 7', res3_7);
+
+    const res8_2 = form.res_8_2;
+    if(!res8_2.value) return mostrarError('Completa la suma 8 + 2', res8_2);
+
+    const res9_1 = form.res_9_1;
+    if(!res9_1.value) return mostrarError('Completa la suma 9 + 1', res9_1);
+
+    const res5_5 = form.res_5_5;
+    if(!res5_5.value) return mostrarError('Completa la suma 5 + 5', res5_5);
+
+    const res4_6 = form.res_4_6;
+    if(!res4_6.value) return mostrarError('Completa la suma 4 + 6', res4_6);
+
+    const parejasQueDan10 = form.parejas_que_dan_10;
+    if(!parejasQueDan10.value.trim()) return mostrarError('Escribe las parejas que dan 10', parejasQueDan10);
+
+    const resultado36x10 = form.resultado_36x10;
+    if(!resultado36x10.value) return mostrarError('Escribe el resultado de 36 + 10', resultado36x10);
+
+    const res12_10 = form.res_12_10;
+    if(!res12_10.value) return mostrarError('Completa la suma 12 + 10', res12_10);
+
+    const res34_10 = form.res_34_10;
+    if(!res34_10.value) return mostrarError('Completa la suma 34 + 10', res34_10);
+
+    const res27_10 = form.res_27_10;
+    if(!res27_10.value) return mostrarError('Completa la suma 27 + 10', res27_10);
+
+    const res40_10 = form.res_40_10;
+    if(!res40_10.value) return mostrarError('Completa la suma 40 + 10', res40_10);
+
+    const res8_10 = form.res_8_10;
+    if(!res8_10.value) return mostrarError('Completa la suma 8 + 10', res8_10);
+
+    alert('Formulario completado correctamente. ¡Puedes enviarlo!');
+
+    return true;
+  }
+</script>
+
+</body>
+</html>
