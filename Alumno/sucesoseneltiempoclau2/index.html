@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulario Actividades Semanales en HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f7f7f7;
+    }
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input[type="text"], textarea, input[type="date"] {
+      width: 100%;
+      padding: 7px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 40px;
+      margin-bottom: 10px;
+      width: calc(100% - 60px); /* espacio para botón eliminar */
+      display: inline-block;
+      vertical-align: top;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #444;
+    }
+    th {
+      background-color: #006400;
+      color: white;
+      text-align: center;
+      padding: 8px;
+    }
+    td {
+      padding: 6px;
+      text-align: center;
+    }
+    .btn {
+      margin-top: 20px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+    .btn:hover {
+      background-color: #1b5e20;
+    }
+    .btnEliminarFila, .btnEliminarTexto {
+      background-color: #b71c1c;
+      padding: 5px 10px;
+      font-size: 0.9em;
+      border-radius: 5px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-left: 5px;
+      vertical-align: top;
+      display: inline-block;
+      height: 40px;
+      line-height: 1.2;
+    }
+    .btnEliminarFila:hover, .btnEliminarTexto:hover {
+      background-color: #7f0000;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 3px;
+    }
+    .success-message {
+      color: green;
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    .error {
+      border-color: red;
+      background-color: #ffe6e6;
+    }
+    label > input[type="radio"] {
+      margin-right: 4px;
+      cursor: pointer;
+    }
+    label {
+      user-select: none;
+      margin-right: 8px;
+    }
+
+    /* Estilo para simular placeholder en contenteditable */
+    td[contenteditable].placeholder {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<h1> Actividades y asistencia semanal</h1>
+
+<form method="POST" action="#" id="formularioActividades">
+
+  <!-- 1. ¿Qué vamos a hacer hoy? -->
+  <section id="seccionQueVamosAHacerHoy">
+    <h2>1. ¿Qué vamos a hacer hoy?</h2>
+    <p>Cada día un equipo está encargado de poner en el semanario las actividades que piensan hacer en la escuela.</p>
+
+    <label for="diasSemana">¿Cuáles son los días de la semana? *</label>
+    <textarea id="diasSemana" name="diasSemana"></textarea>
+
+    <label for="diaHoyFecha">¿Qué día es hoy? *</label>
+    <input type="date" id="diaHoyFecha" name="diaHoyFecha" />
+    <textarea id="diaHoyTexto" name="diaHoyTexto" placeholder="Escribe la fecha en letras aquí..."></textarea>
+
+    <label for="diaAyerFecha">¿Qué día fue ayer? *</label>
+    <input type="date" id="diaAyerFecha" name="diaAyerFecha" />
+    <textarea id="diaAyerTexto" name="diaAyerTexto" placeholder="Escribe la fecha en letras aquí..."></textarea>
+
+    <label for="diaMananaFecha">¿Qué día será mañana? *</label>
+    <input type="date" id="diaMananaFecha" name="diaMananaFecha" />
+    <textarea id="diaMananaTexto" name="diaMananaTexto" placeholder="Escribe la fecha en letras aquí..."></textarea>
+
+    <label for="diaTresDiasFecha">¿Qué día será dentro de tres días? *</label>
+    <input type="date" id="diaTresDiasFecha" name="diaTresDiasFecha" />
+    <textarea id="diaTresDiasTexto" name="diaTresDiasTexto" placeholder="Escribe la fecha en letras aquí..."></textarea>
+
+    <button type="button" class="btn" onclick="validarFechasQueVamosAHacerHoy()">Validar fechas y reiniciar</button>
+
+    <p id="mensajeValidacion" style="font-weight:bold; margin-top:10px;"></p>
+  </section>
+
+  <!-- 2. El martes de la semana pasada dinámico con eliminar -->
+  <section>
+    <h2>2. El martes de la semana pasada</h2>
+    <p>En equipo responde:</p>
+
+    <label>Últimas actividades registradas *</label>
+    <div id="actividadesSemanaPasadaContainer">
+      <div style="margin-bottom:8px;">
+        <textarea name="actividadSemanaPasada0" placeholder="Describe la actividad..."></textarea>
+        <button type="button" class="btnEliminarTexto" onclick="this.parentNode.remove()">Eliminar</button>
+      </div>
+    </div>
+    <button type="button" id="agregarActividadBtn" class="btn">Agregar otra actividad</button>
+
+    <label>Lo que más te gustó de la semana pasada *</label>
+    <div id="gustosSemanaPasadaContainer">
+      <div style="margin-bottom:8px;">
+        <textarea name="gustosSemanaPasada0" placeholder="Describe lo que más te gustó..."></textarea>
+        <button type="button" class="btnEliminarTexto" onclick="this.parentNode.remove()">Eliminar</button>
+      </div>
+    </div>
+    <button type="button" id="agregarGustoBtn" class="btn">Agregar otra descripción</button>
+  </section>
+
+  <!-- 3. La lista de asistencia dinámica -->
+  <section>
+    <h2>3. La lista de asistencia</h2>
+    <p>En la tabla escribe tu nombre y el de tus compañeros. Cada día de la semana marca ✓ si asistió o ✗ si faltó.</p>
+
+    <button type="button" class="btn" id="agregarFilaBtn">Agregar compañero</button>
+
+    <table id="tablaAsistencia">
+      <thead>
+        <tr>
+          <th>Nombres *</th>
+          <th>L</th>
+          <th>M</th>
+          <th>X</th>
+          <th>J</th>
+          <th>V</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" placeholder="Tu nombre" name="nombre0" /></td>
+          <td>
+            <label><input type="radio" name="asistencia_lunes_0" value="✓" />✓</label>
+            <label><input type="radio" name="asistencia_lunes_0" value="✗" />✗</label>
+          </td>
+          <td>
+            <label><input type="radio" name="asistencia_martes_0" value="✓" />✓</label>
+            <label><input type="radio" name="asistencia_martes_0" value="✗" />✗</label>
+          </td>
+          <td>
+            <label><input type="radio" name="asistencia_miercoles_0" value="✓" />✓</label>
+            <label><input type="radio" name="asistencia_miercoles_0" value="✗" />✗</label>
+          </td>
+          <td>
+            <label><input type="radio" name="asistencia_jueves_0" value="✓" />✓</label>
+            <label><input type="radio" name="asistencia_jueves_0" value="✗" />✗</label>
+          </td>
+          <td>
+            <label><input type="radio" name="asistencia_viernes_0" value="✓" />✓</label>
+            <label><input type="radio" name="asistencia_viernes_0" value="✗" />✗</label>
+          </td>
+          <td><button type="button" class="btnEliminarFila">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 4. ¿Qué pasó primero? -->
+  <section>
+    <h2>4. ¿Qué pasó primero?</h2>
+    <p>¡El diario del grupo se ha deshojado! Ayuden al maestro a organizarlo.</p>
+    <label for="ordenActividades">Ordena las hojas (de arriba a abajo):</label>
+    <ul id="ordenActividades" style="list-style: none; padding: 0;">
+      <li draggable="true" id="hoja1" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Cuentos</li>
+      <li draggable="true" id="hoja2" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Matemáticas</li>
+      <li draggable="true" id="hoja3" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Música</li>
+      <li draggable="true" id="hoja4" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Artes</li>
+      <li draggable="true" id="hoja5" style="padding: 8px; margin: 4px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab;">Educación física</li>
+    </ul>
+    <button type="button" class="btn" onclick="reiniciarHojas()">🔁 Reiniciar orden</button>
+    <button type="button" class="btn" onclick="validarOrdenHojas()">✅ Validar orden</button>
+  </section>
+
+  <!-- 5. El horario de clases dinámico -->
+  <section>
+    <h2>5. El horario de clases</h2>
+    <p>Cada equipo elaborará las actividades que siempre se repiten el día que les tocó.</p>
+
+    <button type="button" class="btn" id="agregarHoraBtn">Agregar hora</button>
+
+    <table id="tablaHorario">
+      <thead>
+        <tr>
+          <th>Horas</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas dinámicas aquí -->
+      </tbody>
+    </table>
+
+
+    <label for="diasConocimientoMedio">Describe que te parecieron las actividades y si hubo cambios reflexivos.</label>
+    <textarea id="diasConocimientoMedio" name="diasConocimientoMedio" placeholder="Escribe aquí..."></textarea>
+  </section>
+
+  <button type="submit" class="btn" id="submitBtn">Enviar formulario</button>
+
+</form>
+
+<script>
+  // Variable global para guardar el último orden generado
+  let ultimoOrdenGenerado = [];
+
+  // Drag & drop para ordenar hojas
+  const lista = document.getElementById('ordenActividades');
+
+  lista.querySelectorAll('li').forEach(item => {
+    item.addEventListener('dragstart', e => {
+      e.dataTransfer.setData('text/plain', e.target.id);
+    });
+  });
+
+  lista.addEventListener('dragover', e => e.preventDefault());
+
+  lista.addEventListener('drop', e => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text');
+    const dragged = document.getElementById(id);
+    const target = e.target;
+    if (target.tagName === 'LI' && target.parentNode === lista) {
+      lista.insertBefore(dragged, target);
+    } else {
+      lista.appendChild(dragged);
+    }
+  });
+
+  // Función que mezcla aleatoriamente un array (Fisher-Yates)
+  function mezclar(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  // Reinicia y mezcla aleatoriamente el orden de las hojas
+  function reiniciarHojas() {
+    const hojas = Array.from(lista.children);
+    const hojasMezcladas = mezclar(hojas);
+    hojasMezcladas.forEach(hoja => lista.appendChild(hoja));
+
+    // Guardar orden actual para validar después
+    ultimoOrdenGenerado = hojasMezcladas.map(hoja => hoja.id);
+  }
+
+  // Valida si el orden actual coincide con el último orden generado
+  function validarOrdenHojas() {
+    const ordenActual = Array.from(lista.children).map(li => li.id);
+    if (ordenActual.length !== ultimoOrdenGenerado.length) {
+      alert('❌ Faltan hojas por ordenar.');
+      return;
+    }
+    const esCorrecto = ordenActual.every((id, i) => id === ultimoOrdenGenerado[i]);
+    alert(esCorrecto ? '🎉 ¡Felicidades! El orden es correcto.' : '❌ El orden no es correcto, inténtalo de nuevo.');
+  }
+
+  // Validación simple front-end para campos obligatorios (fechas y textos)
+  document.getElementById('formularioActividades').addEventListener('submit', function(e) {
+    const camposObligatorios = [
+      'diasSemana',
+      'diaHoyFecha', 'diaHoyTexto',
+      'diaAyerFecha', 'diaAyerTexto',
+      'diaMananaFecha', 'diaMananaTexto',
+      'diaTresDiasFecha', 'diaTresDiasTexto',
+      'ultimaActividad', // este id ya no existe porque sección 2 cambió, se ignora
+      'actividadSemanaPasada0', 'gustosSemanaPasada0',
+      //'totalAsistencia', 'diasSemanaOrden' --> No están en inputs visibles en este HTML
+    ];
+
+    let valido = true;
+
+    camposObligatorios.forEach(id => {
+      let campo;
+      if(id.startsWith('actividadSemanaPasada') || id.startsWith('gustosSemanaPasada')) {
+        // Revisar el primer textarea con ese nombre para que exista y no esté vacío
+        campo = document.getElementsByName(id)[0];
+      } else {
+        campo = document.getElementById(id);
+      }
+      if (!campo || !campo.value.trim()) {
+        if (campo) campo.classList.add('error');
+        valido = false;
+      } else {
+        campo.classList.remove('error');
+      }
+    });
+
+    if (!valido) {
+      alert('Por favor, completa todos los campos obligatorios correctamente.');
+      e.preventDefault();
+    }
+  });
+
+  // Funciones para agregar dinámicamente actividades y gustos con eliminar
+  let contadorActividades = 1;
+  let contadorGustos = 1;
+
+  document.getElementById('agregarActividadBtn').addEventListener('click', () => {
+    const contenedor = document.getElementById('actividadesSemanaPasadaContainer');
+    const div = document.createElement('div');
+    div.style.marginBottom = "8px";
+
+    const textarea = document.createElement('textarea');
+    textarea.name = 'actividadSemanaPasada' + contadorActividades++;
+    textarea.placeholder = 'Describe la actividad...';
+    textarea.style.width = 'calc(100% - 60px)';
+    textarea.style.display = 'inline-block';
+    textarea.style.verticalAlign = 'top';
+
+    const btnEliminar = document.createElement('button');
+    btnEliminar.type = 'button';
+    btnEliminar.textContent = 'Eliminar';
+    btnEliminar.className = 'btnEliminarTexto';
+    btnEliminar.style.marginLeft = '5px';
+    btnEliminar.style.verticalAlign = 'top';
+    btnEliminar.onclick = () => div.remove();
+
+    div.appendChild(textarea);
+    div.appendChild(btnEliminar);
+
+    contenedor.appendChild(div);
+  });
+
+  document.getElementById('agregarGustoBtn').addEventListener('click', () => {
+    const contenedor = document.getElementById('gustosSemanaPasadaContainer');
+    const div = document.createElement('div');
+    div.style.marginBottom = "8px";
+
+    const textarea = document.createElement('textarea');
+    textarea.name = 'gustosSemanaPasada' + contadorGustos++;
+    textarea.placeholder = 'Describe lo que más te gustó...';
+    textarea.style.width = 'calc(100% - 60px)';
+    textarea.style.display = 'inline-block';
+    textarea.style.verticalAlign = 'top';
+
+    const btnEliminar = document.createElement('button');
+    btnEliminar.type = 'button';
+    btnEliminar.textContent = 'Eliminar';
+    btnEliminar.className = 'btnEliminarTexto';
+    btnEliminar.style.marginLeft = '5px';
+    btnEliminar.style.verticalAlign = 'top';
+    btnEliminar.onclick = () => div.remove();
+
+    div.appendChild(textarea);
+    div.appendChild(btnEliminar);
+
+    contenedor.appendChild(div);
+  });
+
+  // Función para validar fechas específicas y reiniciar la sección 1
+  function validarFechasQueVamosAHacerHoy() {
+    const mensaje = document.getElementById('mensajeValidacion');
+    mensaje.textContent = '';
+    mensaje.style.color = 'red';
+
+    const diaHoy = document.getElementById('diaHoyFecha').value;
+    const diaAyer = document.getElementById('diaAyerFecha').value;
+    const diaManana = document.getElementById('diaMananaFecha').value;
+    const diaTresDias = document.getElementById('diaTresDiasFecha').value;
+
+    if (!diaHoy || !diaAyer || !diaManana || !diaTresDias) {
+      mensaje.textContent = 'Por favor, selecciona todas las fechas.';
+      return;
+    }
+
+    function soloFecha(fechaStr) {
+      const f = new Date(fechaStr);
+      return new Date(f.getFullYear(), f.getMonth(), f.getDate());
+    }
+
+    const dHoy = soloFecha(diaHoy);
+    const dAyer = soloFecha(diaAyer);
+    const dManana = soloFecha(diaManana);
+    const dTresDias = soloFecha(diaTresDias);
+
+    function diffDias(d1, d2) {
+      const msPorDia = 1000 * 60 * 60 * 24;
+      return Math.round((d2 - d1) / msPorDia);
+    }
+
+    if (diffDias(dAyer, dHoy) !== 1) {
+      mensaje.textContent = 'La fecha "día ayer" debe ser un día antes que "día hoy".';
+      return;
+    }
+
+    if (diffDias(dHoy, dManana) !== 1) {
+      mensaje.textContent = 'La fecha "día mañana" debe ser un día después que "día hoy".';
+      return;
+    }
+
+    if (diffDias(dHoy, dTresDias) !== 3) {
+      mensaje.textContent = 'La fecha "día dentro de tres días" debe ser exactamente tres días después que "día hoy".';
+      return;
+    }
+
+    const seccion = document.getElementById('seccionQueVamosAHacerHoy');
+    const inputs = seccion.querySelectorAll('input[type="date"], textarea');
+    inputs.forEach(i => i.value = '');
+
+    mensaje.style.color = 'green';
+    mensaje.textContent = '¡Fechas correctas! Campos reiniciados.';
+  }
+
+  // Gestión dinámica lista asistencia con radios
+  const tabla = document.getElementById('tablaAsistencia').getElementsByTagName('tbody')[0];
+  const btnAgregar = document.getElementById('agregarFilaBtn');
+
+  btnAgregar.addEventListener('click', () => {
+    const filas = tabla.getElementsByTagName('tr');
+    const nuevoIndice = filas.length;
+
+    const dias = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'];
+
+    const nuevaFila = document.createElement('tr');
+
+    const tdNombre = document.createElement('td');
+    const inputNombre = document.createElement('input');
+    inputNombre.type = 'text';
+    inputNombre.placeholder = 'Compañero ' + nuevoIndice;
+    inputNombre.name = 'nombre' + nuevoIndice;
+    tdNombre.appendChild(inputNombre);
+    nuevaFila.appendChild(tdNombre);
+
+    dias.forEach(dia => {
+      const td = document.createElement('td');
+
+      const labelCheck = document.createElement('label');
+      const radioCheck = document.createElement('input');
+      radioCheck.type = 'radio';
+      radioCheck.name = 'asistencia_' + dia + '_' + nuevoIndice;
+      radioCheck.value = '✓';
+      labelCheck.appendChild(radioCheck);
+      labelCheck.appendChild(document.createTextNode('✓'));
+
+      const labelCross = document.createElement('label');
+      const radioCross = document.createElement('input');
+      radioCross.type = 'radio';
+      radioCross.name = 'asistencia_' + dia + '_' + nuevoIndice;
+      radioCross.value = '✗';
+      labelCross.appendChild(radioCross);
+      labelCross.appendChild(document.createTextNode('✗'));
+
+      td.appendChild(labelCheck);
+      td.appendChild(document.createTextNode(' '));
+      td.appendChild(labelCross);
+
+      nuevaFila.appendChild(td);
+    });
+
+    const tdEliminar = document.createElement('td');
+    const btnEliminar = document.createElement('button');
+    btnEliminar.type = 'button';
+    btnEliminar.textContent = 'Eliminar';
+    btnEliminar.className = 'btnEliminarFila';
+    btnEliminar.onclick = () => nuevaFila.remove();
+    tdEliminar.appendChild(btnEliminar);
+    nuevaFila.appendChild(tdEliminar);
+
+    tabla.appendChild(nuevaFila);
+  });
+
+  document.querySelectorAll('.btnEliminarFila').forEach(btn => {
+    btn.onclick = () => btn.closest('tr').remove();
+  });
+
+  // --- SECCIÓN 5 DINÁMICA CON PLACEHOLDER SIMULADO ---
+  const tablaHorario = document.getElementById('tablaHorario').querySelector('tbody');
+  const btnAgregarHora = document.getElementById('agregarHoraBtn');
+
+  const placeholderText = "Escribe aquí las actividades";
+
+  function setPlaceholder(td) {
+    if (td.textContent.trim() === '') {
+      td.classList.add('placeholder');
+      td.textContent = placeholderText;
+    }
+  }
+
+  function clearPlaceholder(td) {
+    if (td.classList.contains('placeholder')) {
+      td.classList.remove('placeholder');
+      td.textContent = '';
+    }
+  }
+
+  function agregarFilaHorario(hora = '') {
+    const fila = document.createElement('tr');
+
+    const tdHora = document.createElement('td');
+    tdHora.contentEditable = 'true';
+    tdHora.textContent = hora;
+    fila.appendChild(tdHora);
+
+    const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+    dias.forEach(() => {
+      const td = document.createElement('td');
+      td.contentEditable = 'true';
+
+      setPlaceholder(td);
+
+      td.addEventListener('focus', () => clearPlaceholder(td));
+      td.addEventListener('blur', () => setPlaceholder(td));
+
+      fila.appendChild(td);
+    });
+
+    const tdEliminar = document.createElement('td');
+    const btnEliminar = document.createElement('button');
+    btnEliminar.type = 'button';
+    btnEliminar.textContent = 'Eliminar';
+    btnEliminar.className = 'btnEliminarFila';
+    btnEliminar.onclick = () => fila.remove();
+    tdEliminar.appendChild(btnEliminar);
+    fila.appendChild(tdEliminar);
+
+    tablaHorario.appendChild(fila);
+  }
+
+  ['7:00 - 8:00', '8:00 - 9:00', '9:00 - 10:00', '10:00 - 11:00', '11:00 - 12:00'].forEach(hora => {
+    agregarFilaHorario(hora);
+  });
+
+  btnAgregarHora.addEventListener('click', () => {
+    agregarFilaHorario();
+  });
+</script>
+
+</body>
+</html>

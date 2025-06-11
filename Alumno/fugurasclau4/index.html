@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Figuras Geométricas - Aprende y juega</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px auto;
+      max-width: 800px;
+      background-color: #fefefe;
+      color: #444;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #6b4b00;
+    }
+    h2 {
+      background-color: #f0c36d;
+      padding: 10px;
+      border-radius: 5px;
+      color: #6b4b00;
+      margin-bottom: 20px;
+    }
+    section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #fafafa;
+      box-shadow: 0 0 8px #ccc;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+    textarea, select, input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 1em;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+    img.figura-img {
+      display: block;
+      max-width: 200px;
+      margin: 10px auto 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(107, 75, 0, 0.3);
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background-color: #f0c36d;
+      color: #6b4b00;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #d4ad2f;
+    }
+    #mensaje-resultado,
+    #mensaje-resultado-juego,
+    #mensaje-resultado-s3 {
+      margin-top: 8px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+    }
+    .correcto {
+      color: green;
+    }
+    .incorrecto {
+      color: red;
+    }
+    .drag-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .figura {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #333;
+      cursor: grab;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      user-select: none;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      transition: transform 0.2s ease;
+    }
+    .figura.dragging {
+      opacity: 0.5;
+    }
+    .drop-zone {
+      width: 120px;
+      height: 120px;
+      border: 2px dashed #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    .correcto-drop {
+      border-color: green;
+      background-color: #d4edda;
+    }
+    .incorrecto-drop {
+      border-color: red;
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Aprende sobre Figuras Geométricas</h1>
+
+<!-- Sección 1 -->
+<section>
+  <h2>1. Observa las figuras del sobre misterioso</h2>
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
+    <div>
+      <img src="https://th.bing.com/th/id/R.f81ee9029c797b11f88b35b72f85609b?rik=%2fi7wzJJbEwEBLQ&pid=ImgRaw" alt="Círculo" class="figura-img">
+      <p style="text-align: center;"></p>
+    </div>
+    <div>
+      <img src="https://4.bp.blogspot.com/-xA9TU0DDFcg/XKyx9-FGjII/AAAAAAAAlqM/_hj885jJ79gJczE97FhcRnE1t0j9mJDHACK4BGAYYCw/s1600/images.png" alt="Cuadrado" class="figura-img">
+      <p style="text-align: center;"></p>
+    </div>
+    <div>
+      <img src="https://c0.klipartz.com/pngpicture/572/973/gratis-png-triangulo-rojo-triangulo-rectangulo-triangulo-rojo.png" alt="Triángulo" class="figura-img">
+      <p style="text-align: center;"></p>
+    </div>
+  </div>
+
+  <label for="s1_pregunta">¿Qué forma reconoce en las figuras del sobre? (Selecciona una)</label>
+  <button class="btn opcion" id="circulo" onclick="verificarRespuesta('circulo', this)">Círculo</button>
+  <button class="btn opcion" id="cuadrado" onclick="verificarRespuesta('cuadrado', this)">Cuadrado</button>
+  <button class="btn opcion" id="triangulo" onclick="verificarRespuesta('triangulo', this)">Triángulo</button>
+  <button class="btn opcion" id="rectangulo" onclick="verificarRespuesta('rectangulo', this)">Rectángulo</button>
+  <button class="btn opcion" id="rombo" onclick="verificarRespuesta('rombo', this)">Rombo</button>
+  <button class="btn opcion" id="hexagono" onclick="verificarRespuesta('hexagono', this)">Hexágono</button>
+
+  <div id="mensaje-resultado"></div>
+  <button class="btn" onclick="reiniciarJuego1()">Reiniciar Juego</button>
+</section>
+
+<!-- Sección 2 -->
+<section>
+  <h2>2. ¡Arrastra las figuras a sus categorías!</h2>
+  <p>Arrastra las figuras geométricas en las categorías correctas:</p>
+
+  <div class="drag-container" id="drag-container">
+    <div class="figura" id="Rectángulo" draggable="true" ondragstart="dragStart(event)">
+      <img src="https://chicodeza.com/wordpress/wp-content/uploads/shikaku-illust27.png" alt="Rectángulo" style="width: 80px; height: 80px;">
+    </div>
+    <div class="figura" id="Rombo" draggable="true" ondragstart="dragStart(event)">
+      <img src="https://th.bing.com/th/id/R.9531b13d581297a1b772a41106bafd7b?rik=f2yVSbkTT8LBvA&pid=ImgRaw&r=0" alt="Rombo" style="width: 80px; height: 80px;">
+    </div>
+    <div class="figura" id="Hexágono" draggable="true" ondragstart="dragStart(event)">
+      <img src="https://img.freepik.com/fotos-premium/hexagono-azul-aislado-sobre-fondo-blanco-figura-coloca-blanco_325845-3858.jpg" alt="Hexágono" style="width: 80px; height: 80px;">
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 20px; justify-content: center;">
+    <div class="drop-zone" id="Rectángulo" ondrop="drop(event)" ondragover="allowDrop(event)">Rectángulo</div>
+    <div class="drop-zone" id="Rombo" ondrop="drop(event)" ondragover="allowDrop(event)">Rombo</div>
+    <div class="drop-zone" id="Hexágono" ondrop="drop(event)" ondragover="allowDrop(event)">Hexágono</div>
+  </div>
+
+  <div id="mensaje-resultado-juego"></div>
+  <button class="btn" onclick="reiniciarJuego2()">Reiniciar Juego</button>
+</section>
+
+<!-- Sección 3 -->
+<section>
+  <h2>3. ¿Qué tienen en común estas figuras?</h2>
+  <div style="display: flex; justify-content: center; gap: 20px;">
+    <img src="https://www.caracteristicasdel.com/wp-content/uploads/2021/03/Caracteristicas-del-Trapecio.....png" alt="Trapecio" class="figura-img" style="width: 100px; height: 100px;">
+    <img src="https://th.bing.com/th/id/OIP.PoespmJRH-tQWYM2f0qPPQHaHa?rs=1&pid=ImgDetMain" alt="Octágono" class="figura-img" style="width: 100px; height: 100px;">
+    <img src="https://toppng.com/uploads/preview/triangulo-equilatero-11550712323ogdjtnbaqm.png" alt="Triángulo equilátero" class="figura-img" style="width: 100px; height: 100px;">
+  </div>
+
+  <label for="s3_comun">Describe qué tienen en común las figuras:</label>
+  <textarea id="s3_comun" name="s3_comun" placeholder="Por ejemplo: tienen lados iguales, tienen ángulos rectos..." required></textarea>
+
+  <label for="s3_mensaje">Elige el mensaje que describe mejor ese grupo:</label>
+  <select id="s3_mensaje" name="s3_mensaje" required>
+    <option value="" disabled selected>Selecciona una opción</option>
+    <option value="tienen_lados_iguales">Tienen lados iguales.</option>
+    <option value="tienen_angulos_rectos">Tienen ángulos rectos.</option>
+    <option value="tienen_varios_lados">Tienen varios lados (más de 4).</option>
+    <option value="tienen_simetria">Tienen simetría.</option>
+  </select>
+
+  <button class="btn" onclick="verificarRespuesta3()">Verificar Respuesta</button>
+  <div id="mensaje-resultado-s3"></div>
+  <button class="btn" onclick="reiniciarJuego3()">Reiniciar Juego</button>
+</section>
+
+<!-- JS General -->
+<script>
+  function verificarRespuesta(respuesta, btn) {
+    const correctas = ["circulo", "cuadrado", "triangulo"];
+    const mensaje = document.getElementById("mensaje-resultado");
+    mensaje.textContent = "";
+
+    if (correctas.includes(respuesta)) {
+      mensaje.textContent = "¡Felicidades! Has seleccionado la figura correcta.";
+      mensaje.className = "correcto";
+      btn.style.backgroundColor = "green";
+    } else {
+      mensaje.textContent = "Lo siento, esa figura no es correcta. Intenta de nuevo.";
+      mensaje.className = "incorrecto";
+      btn.style.backgroundColor = "red";
+    }
+
+    document.querySelectorAll(".opcion").forEach(b => b.disabled = true);
+  }
+
+  function reiniciarJuego1() {
+    const mensaje = document.getElementById("mensaje-resultado");
+    mensaje.textContent = "";
+    mensaje.className = "";
+    document.querySelectorAll(".opcion").forEach(b => {
+      b.disabled = false;
+      b.style.backgroundColor = "#f0c36d";
+    });
+  }
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function dragStart(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    const id = ev.dataTransfer.getData("text");
+    const dragged = document.getElementById(id);
+    const dropZone = ev.target;
+
+    if (dropZone.id === id) {
+      dropZone.classList.add("correcto-drop");
+      dropZone.innerHTML = dragged.innerHTML;
+      document.getElementById("mensaje-resultado-juego").textContent = "¡Felicidades! Has colocado la figura correctamente.";
+      document.getElementById("mensaje-resultado-juego").className = "correcto";
+    } else {
+      dropZone.classList.add("incorrecto-drop");
+      document.getElementById("mensaje-resultado-juego").textContent = "Ups, intenta de nuevo.";
+      document.getElementById("mensaje-resultado-juego").className = "incorrecto";
+    }
+  }
+
+  function reiniciarJuego2() {
+    document.getElementById("mensaje-resultado-juego").textContent = "";
+    document.querySelectorAll(".drop-zone").forEach(z => {
+      z.className = "drop-zone";
+      z.innerHTML = z.id;
+    });
+    document.getElementById("drag-container").innerHTML = `
+      <div class="figura" id="Rectángulo" draggable="true" ondragstart="dragStart(event)">
+        <img src="https://chicodeza.com/wordpress/wp-content/uploads/shikaku-illust27.png" alt="Rectángulo" style="width: 80px; height: 80px;">
+      </div>
+      <div class="figura" id="Rombo" draggable="true" ondragstart="dragStart(event)">
+        <img src="https://th.bing.com/th/id/R.9531b13d581297a1b772a41106bafd7b?rik=f2yVSbkTT8LBvA&pid=ImgRaw&r=0" alt="Rombo" style="width: 80px; height: 80px;">
+      </div>
+      <div class="figura" id="Hexágono" draggable="true" ondragstart="dragStart(event)">
+        <img src="https://img.freepik.com/fotos-premium/hexagono-azul-aislado-sobre-fondo-blanco-figura-coloca-blanco_325845-3858.jpg" alt="Hexágono" style="width: 80px; height: 80px;">
+      </div>
+    `;
+  }
+
+  function verificarRespuesta3() {
+    const seleccion = document.getElementById("s3_mensaje").value;
+    const mensaje = document.getElementById("mensaje-resultado-s3");
+    if (seleccion === "tienen_simetria") {
+      mensaje.textContent = "¡Felicidades! Has elegido la respuesta correcta.";
+      mensaje.className = "correcto";
+    } else {
+      mensaje.textContent = "Lo siento, esa no es la respuesta correcta. Intenta de nuevo.";
+      mensaje.className = "incorrecto";
+    }
+  }
+
+  function reiniciarJuego3() {
+    document.getElementById("s3_comun").value = "";
+    document.getElementById("s3_mensaje").selectedIndex = 0;
+    const mensaje = document.getElementById("mensaje-resultado-s3");
+    mensaje.textContent = "";
+    mensaje.className = "";
+  }
+</script>
+
+</body>
+</html>
+
+
