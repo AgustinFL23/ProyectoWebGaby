@@ -35,8 +35,8 @@ function obtener_Preguntas() {
 		else{
 			document.getElementsByTagName("title").textContent=data.examen.titulo;
 			const preguntasAleatorias = aleatorizar_Preguntas(data.preguntas);
-			console.log(data.examen.preguntas_por_alumno);
-            mostrar_Preguntas(preguntasAleatorias,data.examen.preguntas_por_alumno);
+			console.log(data.examen.cantidad_preguntas);
+            mostrar_Preguntas(preguntasAleatorias,data.examen.cantidad_preguntas);
 		}
 
 	})
@@ -71,7 +71,7 @@ function mostrar_Preguntas(preguntas, size) {
         if (index < size) {
             const fieldset = document.createElement("fieldset");
             const legend = document.createElement("legend");
-            legend.textContent = `Pregunta ${index + 1}: ${pregunta.enunciado}`;
+            legend.textContent = `Pregunta ${index + 1}: ${pregunta.pregunta}`;
             fieldset.appendChild(legend);
 
             pregunta.opciones.forEach(opcion => {
