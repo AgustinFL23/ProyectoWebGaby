@@ -9,9 +9,10 @@ function obtener_examenes(arg) {
 			item=>{
 				const li=document.createElement('li');
 				const a=document.createElement('a');
-				const id=item.id;
+				const id=item.id_examen;
+                alert(id);
 				a.href=`?id=${id}`;
-				a.textContent=item.titulo;
+				a.textContent=item.nombreExamen;
 				li.appendChild(a);
 				lista.appendChild(li);
 			});
@@ -48,17 +49,17 @@ function aleatorizar_Preguntas(preguntas) {
 	preguntas = preguntas.sort(() => Math.random() - 0.5);
 	return preguntas.map(p => {
         const opciones = [
-            { texto: p.opcion1, id: 1 },
-            { texto: p.opcion2, id: 2 },
-            { texto: p.opcion3, id: 3 },
-            { texto: p.opcion4, id: 4 },
+            { texto: p.opcionA, id: 1 },
+            { texto: p.opcionB, id: 2 },
+            { texto: p.opcionC, id: 3 },
+            { texto: p.opcionD, id: 4 },
         ];
 
         const opciones_aleatorias = opciones.sort(() => Math.random() - 0.5);
 
         return {
             id: p.id,
-            enunciado: p.enunciado,
+            enunciado: p.pregunta,
             opciones: opciones_aleatorias
         };
     });
@@ -71,7 +72,7 @@ function mostrar_Preguntas(preguntas, size) {
         if (index < size) {
             const fieldset = document.createElement("fieldset");
             const legend = document.createElement("legend");
-            legend.textContent = `Pregunta ${index + 1}: ${pregunta.pregunta}`;
+            legend.textContent = `Pregunta ${index + 1}: ${pregunta.enunciado}`;
             fieldset.appendChild(legend);
 
             pregunta.opciones.forEach(opcion => {
