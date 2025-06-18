@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Videos</title>
+    <link rel="stylesheet" type="text/css" href="../../Comun/CSS/headerNavFooter.css">
+    <style>
+        /* CONTENEDORES PRINCIPALES - RESPONSIVOS */
+        #principal{
+    height: fit-content;
+    width: 100vw;
+}
+#contenido{
+    height: fit-content;
+    width: 100vw;
+}
+        #contenedor-formularios {
+            padding: 2vw;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin: 2vw auto;
+            max-width: 95vw;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* ÁREA DE FORMULARIOS - ADAPTABLE */
+        #area-formularios {
+            min-height: 50vh;
+            padding: 2.5vw;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 2px solid #e1e1e1;
+        }
+
+        /* PREVIEW DE FORMULARIOS - RESPONSIVO */
+        .preview-formulario {
+            width: 100%;
+            min-height: 20vh;
+            margin: 1.5vw 0;
+            padding: 1.5vw;
+            background-color: #f0f8ff;
+            border: 1px solid #d0e3ff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .preview-formulario h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            padding-bottom: 1vh;
+            border-bottom: 1px solid #d0e3ff;
+            font-size: clamp(16px, 2vw, 22px);
+        }
+
+        .preview-contenido {
+            padding: 1vw;
+            background-color: white;
+            border-radius: 3px;
+            margin-top: 1vh;
+            font-size: clamp(14px, 1.6vw, 18px);
+        }
+
+        /* TÍTULOS RESPONSIVOS */
+        .titulo-formularios {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 3vh;
+            font-size: clamp(20px, 3vw, 28px);
+            padding-bottom: 1vh;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        /* BOTONES ADAPTABLES */
+        .boton-ver-formulario {
+            padding: 1vh 2vw;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: clamp(14px, 1.6vw, 18px);
+            margin-top: 1vh;
+            transition: background-color 0.3s;
+        }
+
+        .boton-ver-formulario:hover {
+            background-color: #2980b9;
+        }
+
+        /* IFRAME COMPLETAMENTE RESPONSIVO */
+        .frame-formularios-alumno {
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        }
+
+        /* MEDIA */
+        @media (max-width: 768px) {
+            #contenedor-formularios {
+                padding: 3vw;
+                margin: 3vw auto;
+            }
+            
+            #area-formularios {
+                padding: 4vw;
+                min-height: 60vh;
+            }
+             
+            .preview-formulario {
+                padding: 3vw;
+                min-height: 25vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .preview-formulario h3 {
+                font-size: 18px;
+            }
+            
+            .preview-contenido {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script src="../../Comun/Javascript/session.js" defer></script>
+    <script src="../Comun/Javascript/alumno.js"></script>
+    <script src="Javascript/Libros.js"></script>
+</head>
+<body>
+<header>
+    <img src="../../Comun/Multimedia/Imagenes/logo.png" id="logo">
+    <h1>Apoyo a la educación primaria</h1>
+</header>
+<nav>
+    <!-- Menú -->
+    <ul>
+        <li><a href="./index.html">Principal</a></li>
+        <!--<li class="activa"><a href="./formularios_alumno.html">Formularios</a></li>-->
+        <li>
+            <a href="#">Perfil</a>
+            <ul>
+                <li><a href="#">Consultar datos</a></li>
+                <li><a href="#">Editar Datos</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Bloque</a>
+            <ul>
+                <li>
+                    <a href="#">1er Bloque</a>
+                    <ul>
+                        <li><a href="#">Libros</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Practicas</a></li>
+                        <li>
+                            <a href="#">Examenes</a>
+                            <ul id="Examenes1">
+                                <script>obtener_examenes(1);</script>
+                            </ul>
+                        </li>
+                        <li><a href="#">Imprimibles</a></li>
+                        <li><a href="#">Progreso</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">2do Bloque</a>
+                    <ul>
+                        <li><a href="#">Libros</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Practicas</a></li>
+                        <li>
+                            <a href="#">Examenes</a>
+                            <ul id="Examenes2">
+                                <script>obtener_examenes(2);</script>
+                            </ul>
+                        </li>
+                        <li><a href="#">Imprimibles</a></li>
+                        <li><a href="#">Progreso</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">3er Bloque</a>
+                    <ul>
+                        <li><a href="#">Libros</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Practicas</a></li>
+                        <li>
+                            <a href="#">Examenes</a>
+                            <ul id="Examenes3">
+                                <script>obtener_examenes(3);</script>
+                            </ul>
+                        </li>
+                        <li><a href="#">Imprimibles</a></li>
+                        <li><a href="#">Progreso</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Sesión</a>
+            <ul>
+                <li><a href="#" onclick="cerrarSesion()">Cerrar sesión</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Ayuda</a>
+            <ul>
+                <li><a href="#">Manual de usuario</a></li>
+                <li><a href="#">Busqueda</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div id="layout">
+    <div id="principal">
+        <div id="contenido">
+            <div id="contenedor-formularios">
+                <h1 class="titulo-formularios">Formularios del Alumno</h1>
+                <div id="area-formularios">
+                    <iframe src="404.html" class="frame-formularios-alumno"></iframe>
+                    <script>Mostrar_Formulario()</script>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            copyright by Equipo1
+        </div>
+    </div>
+</div>
+
+<!-- 
+    usar para otras paginas :
+    <iframe src="formularios_alumno.html" class="frame-formularios-alumno"></iframe>
+    
+    Estilo:
+    .frame-formularios-alumno {
+        width: 100%;
+        height: 600px;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+-->
+
+<script>
+    // Cargar información del usuario
+    document.addEventListener('DOMContentLoaded', function() {
+        if(typeof getCookie === 'function') {
+            document.getElementById("username-display").textContent = getCookie("username") || "Usuario";
+            document.getElementById("tipo-usuario-display").textContent = getCookie("tipoUsuario") || "Alumno";
+        } else {
+            console.error("La función getCookie no está disponible");
+        }
+    });
+</script>
+</body>
+</html>
