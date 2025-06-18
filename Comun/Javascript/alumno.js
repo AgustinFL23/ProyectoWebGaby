@@ -1,15 +1,16 @@
-function obtener_examenes() {
+function obtener_examenes(arg) {
 	fetch("../PHP/obtener_examenes.php")
 	.then(response=>response.json())
 	.then(data=>{
-		const lista= document.getElementById('Examenes');
+		const lista= document.getElementById(`Examenes${arg}`);
 		data.examenes.forEach(
 			item=>{
 				const li=document.createElement('li');
 				const a=document.createElement('a');
-				const id=item.id;
+				const id=item.id_examen;
 				a.href=`Examen.html?id=${id}`;
-				a.textContent=item.titulo;
+				a.textContent=item.nombreExamen;
+				alert(item.nombreExamen);
 				li.appendChild(a);
 				lista.appendChild(li);
 			});

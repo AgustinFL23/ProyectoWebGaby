@@ -4,7 +4,7 @@ session_start();
 include 'conexion.php';
 
 $correo = $_POST['correo'] ?? '';
-$contraseña = $_POST['contraseña'] ?? '';
+$contraseña = $_POST['contrasena'] ?? '';
 $tipo = $_POST['tipo'] ?? '';
 
 $sql = "SELECT * FROM usuario WHERE correo=? AND contraseña=? /*AND tipo=?*/";
