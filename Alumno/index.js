@@ -7,9 +7,9 @@ function obtener_examenes(arg) {
 			item=>{
 				const li=document.createElement('li');
 				const a=document.createElement('a');
-				const id=item.id;
+				const id=item.id_Examen;
 				a.href=`Examen?id=${id}`;
-				a.textContent=item.titulo;
+				a.textContent=item.nombreExamen;
 				li.appendChild(a);
 				lista.appendChild(li);
 			});

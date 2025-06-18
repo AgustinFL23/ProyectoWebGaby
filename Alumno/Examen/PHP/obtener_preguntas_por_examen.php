@@ -25,7 +25,7 @@ if ($result_examen->num_rows === 0) {
 
 $examen = $result_examen->fetch_assoc();
 
-$sql_preguntas = "SELECT * FROM preguntas WHERE id_examen = ?";
+$sql_preguntas = "SELECT * FROM pregunta WHERE id_examen = ?";
 $stmt_preguntas = $conn->prepare($sql_preguntas);
 $stmt_preguntas->bind_param("i", $id_examen);
 $stmt_preguntas->execute();

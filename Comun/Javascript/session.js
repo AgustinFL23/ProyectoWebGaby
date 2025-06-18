@@ -43,6 +43,7 @@ function validarLogin() {
   if (correo.length > 0 && password.length > 0) {
     // Almacenar datos de sesión en cookies (duración: 60 minutos)
     setCookie("correo", correo, 60);
+    setCookie("contraseña",password,60);
     setCookie("tipoUsuario", tipoUsuario, 60);
     setCookie("sesionActiva", "true", 60);
     
