@@ -7,14 +7,17 @@ function obtener_examenes(arg) {
 		const lista= document.getElementById(`Examenes${arg}`);
 		data.examenes.forEach(
 			item=>{
-				const li=document.createElement('li');
-				const a=document.createElement('a');
-				const id=item.id_examen;
-                alert(id);
-				a.href=`?id=${id}`;
-				a.textContent=item.nombreExamen;
-				li.appendChild(a);
-				lista.appendChild(li);
+                if (item.bloque.id_bloque==arg) {
+                    const li=document.createElement('li');
+                    const a=document.createElement('a');
+                    const id=item.id_examen;
+                    alert(id);
+                    a.href=`?id=${id}`;
+                    a.textContent=item.nombreExamen;
+                    li.appendChild(a);
+                    lista.appendChild(li);
+                }
+				
 			});
 	})
 	.catch(error=> {
