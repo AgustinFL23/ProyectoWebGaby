@@ -157,3 +157,55 @@ function obtener_videos(arg) {
         console.error("Error al obtener examenes",error);
     });
 }
+function obtener_libros(arg) {
+    fetch("../Comun/PHP/obtener_libros.php")
+    .then(response=>response.json())
+    .then(data=>{
+        const cadena='Video'+String(arg);
+        console.log(cadena);
+        const lista= document.getElementById(`Libros${arg}`);
+        data.videos.forEach(
+            item=>{
+                if (item.bloque.id_bloque==arg) {
+                    const li=document.createElement('li');
+                    const a=document.createElement('a');
+                    const id=item.direccion;
+                    alert(id);
+                    a.href=`../Libros/?id=${id}`;
+                    a.textContent=item.contenido.tema;
+                    li.appendChild(a);
+                    lista.appendChild(li);
+                }
+                
+            });
+    })
+    .catch(error=> {
+        console.error("Error al obtener examenes",error);
+    });
+}
+function obtener_imprimibles(arg) {
+    fetch("../Comun/PHP/obtener_imprimibles.php")
+    .then(response=>response.json())
+    .then(data=>{
+        const cadena='Video'+String(arg);
+        console.log(cadena);
+        const lista= document.getElementById(`Imprimibles${arg}`);
+        data.videos.forEach(
+            item=>{
+                if (item.bloque.id_bloque==arg) {
+                    const li=document.createElement('li');
+                    const a=document.createElement('a');
+                    const id=item.direccion;
+                    alert(id);
+                    a.href=`../Libros/?id=${id}`;
+                    a.textContent=item.contenido.tema;
+                    li.appendChild(a);
+                    lista.appendChild(li);
+                }
+                
+            });
+    })
+    .catch(error=> {
+        console.error("Error al obtener examenes",error);
+    });
+}
