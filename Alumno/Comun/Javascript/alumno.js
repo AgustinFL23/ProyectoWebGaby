@@ -48,7 +48,7 @@ function enviar_Respuestas() {
 
     console.log("Respuestas:", respuestas);
 
-    fetch("../Comun/PHP/guardar_respuestas.php", {
+    fetch("../Examen/PHP/guardar_respuestas.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -162,7 +162,7 @@ function obtener_Preguntas() {
         else{
             document.getElementsByTagName("title").textContent=data.examen.titulo;
             const preguntasAleatorias = aleatorizar_Preguntas(data.preguntas);
-            console.log(data.examen.cantidad_preguntas);
+            console.log(preguntasAleatorias);
             mostrar_Preguntas(preguntasAleatorias,data.examen.cantidad_preguntas);
         }
 
@@ -184,7 +184,7 @@ function aleatorizar_Preguntas(preguntas) {
         const opciones_aleatorias = opciones.sort(() => Math.random() - 0.5);
 
         return {
-            id: p.id,
+            id: p.id_pregunta,
             enunciado: p.pregunta,
             opciones: opciones_aleatorias
         };
@@ -205,9 +205,9 @@ function mostrar_Preguntas(preguntas, size) {
                 const label = document.createElement("label");
                 const radio = document.createElement("input");
                 radio.type = "radio";
-                radio.name = `pregunta_${preguntas.id_pregunta}`;
+                radio.name = `pregunta_${pregunta.id}`;
                 radio.value = opcion.id;
-                radio.id = `respuesta_${preguntas.id_pregunta}_${opcion.id_}`;
+                radio.id = `respuesta_${pregunta.id}_${opcion.id}`;
 
                 label.appendChild(radio);
                 label.appendChild(document.createTextNode(" " + opcion.texto));
