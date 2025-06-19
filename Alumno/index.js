@@ -10,7 +10,7 @@ function obtener_examenes(arg) {
                     const a=document.createElement('a');
                     const id=item.id_examen;
                     alert(id);
-                    a.href=`?id=${id}`;
+                    a.href=`Examen/?id=${id}`;
                     a.textContent=item.nombreExamen;
                     li.appendChild(a);
                     lista.appendChild(li);
@@ -104,4 +104,30 @@ function enviar_Respuestas(argument) {
 }
 function verificar_Si_Se_Realizo_antes(argument) {
 	// body...
+}
+function obtener_videos(arg) {
+    fetch("Comun/PHP/obtener_video.php")
+    .then(response=>response.json())
+    .then(data=>{
+        const cadena='Video'+String(arg);
+        console.log(cadena);
+        const lista= document.getElementById(`Video${arg}`);
+        data.videos.forEach(
+            item=>{
+                if (item.bloque.id_bloque==arg) {
+                    const li=document.createElement('li');
+                    const a=document.createElement('a');
+                    const id=item.direccion;
+                    alert(id);
+                    a.href=`Videos/?id=${id}`;
+                    a.textContent=item.contenido.tema;
+                    li.appendChild(a);
+                    lista.appendChild(li);
+                }
+                
+            });
+    })
+    .catch(error=> {
+        console.error("Error al obtener examenes",error);
+    });
 }
