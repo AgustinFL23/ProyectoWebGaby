@@ -11,7 +11,6 @@ function obtener_examenes(arg) {
                     const li=document.createElement('li');
                     const a=document.createElement('a');
                     const id=item.id_examen;
-                    alert(id);
                     a.href=`../Examen/?id=${id}`;
                     a.textContent=item.nombreExamen;
                     li.appendChild(a);
@@ -86,7 +85,6 @@ function obtener_videos(arg) {
                     const li=document.createElement('li');
                     const a=document.createElement('a');
                     const id=item.direccion;
-                    alert(id);
                     a.href=`../Videos/?id=${id}`;
                     a.textContent=item.contenido.tema;
                     li.appendChild(a);
@@ -112,7 +110,6 @@ function obtener_libros(arg) {
                     const li=document.createElement('li');
                     const a=document.createElement('a');
                     const id=item.direccion;
-                    alert(id);
                     a.href=`../Libros/?id=${id}`;
                     a.textContent=item.contenido.tema;
                     li.appendChild(a);
@@ -138,7 +135,6 @@ function obtener_imprimibles(arg) {
                     const li=document.createElement('li');
                     const a=document.createElement('a');
                     const id=item.direccion;
-                    alert(id);
                     a.href=`../Imprimibles/?id=${id}`;
                     a.textContent=item.contenido.tema;
                     li.appendChild(a);
