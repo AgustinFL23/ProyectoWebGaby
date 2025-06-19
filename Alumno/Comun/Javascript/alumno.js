@@ -164,7 +164,7 @@ function obtener_libros(arg) {
         const cadena='Video'+String(arg);
         console.log(cadena);
         const lista= document.getElementById(`Libros${arg}`);
-        data.videos.forEach(
+        data.libros.forEach(
             item=>{
                 if (item.bloque.id_bloque==arg) {
                     const li=document.createElement('li');
@@ -190,14 +190,14 @@ function obtener_imprimibles(arg) {
         const cadena='Video'+String(arg);
         console.log(cadena);
         const lista= document.getElementById(`Imprimibles${arg}`);
-        data.videos.forEach(
+        data.diapositivas.forEach(
             item=>{
                 if (item.bloque.id_bloque==arg) {
                     const li=document.createElement('li');
                     const a=document.createElement('a');
                     const id=item.direccion;
                     alert(id);
-                    a.href=`../Libros/?id=${id}`;
+                    a.href=`../Imprimibles/?id=${id}`;
                     a.textContent=item.contenido.tema;
                     li.appendChild(a);
                     lista.appendChild(li);
