@@ -130,4 +130,59 @@ function obtener_videos(arg) {
     .catch(error=> {
         console.error("Error al obtener examenes",error);
     });
+<<<<<<< HEAD
+=======
+}
+function obtener_imprimibles(arg) {
+    fetch("Comun/PHP/obtener_imprimibles.php")
+    .then(response=>response.json())
+    .then(data=>{
+        const cadena='Video'+String(arg);
+        console.log(cadena);
+        const lista= document.getElementById(`Imprimibles${arg}`);
+        data.diapositivas.forEach(
+            item=>{
+                if (item.bloque.id_bloque==arg) {
+                    const li=document.createElement('li');
+                    const a=document.createElement('a');
+                    const id=item.direccion;
+                    alert(id);
+                    a.href=`../Imprimibles/?id=${id}`;
+                    a.textContent=item.contenido.tema;
+                    li.appendChild(a);
+                    lista.appendChild(li);
+                }
+                
+            });
+    })
+    .catch(error=> {
+        console.error("Error al obtener examenes",error);
+    });
+}
+function obtener_libros(arg) {
+    fetch("Comun/PHP/obtener_libros.php")
+    .then(response=>response.json())
+    .then(data=>{
+        const cadena='Video'+String(arg);
+        console.log(cadena);
+        const lista= document.getElementById(`Libros${arg}`);
+        data.libros.forEach(
+            item=>{
+                if (item.bloque.id_bloque==arg) {
+                    const li=document.createElement('li');
+                    const a=document.createElement('a');
+                    const id=item.direccion;
+                    alert(id);
+                    a.href=`../Libros/?id=${id}`;
+                    a.textContent=item.contenido.tema;
+                    li.appendChild(a);
+                    lista.appendChild(li);
+                }
+                
+            });
+    })
+    .catch(error=> {
+        console.error("Error al obtener examenes",error);
+    });
+>>>>>>> 52ab3dbc60c417be9ccb955dffe064315ed2156c
 }

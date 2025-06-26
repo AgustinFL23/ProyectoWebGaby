@@ -164,7 +164,11 @@ function obtener_libros(arg) {
         const cadena='Video'+String(arg);
         console.log(cadena);
         const lista= document.getElementById(`Libros${arg}`);
+<<<<<<< HEAD
         data.videos.forEach(
+=======
+        data.libros.forEach(
+>>>>>>> 52ab3dbc60c417be9ccb955dffe064315ed2156c
             item=>{
                 if (item.bloque.id_bloque==arg) {
                     const li=document.createElement('li');
@@ -190,14 +194,22 @@ function obtener_imprimibles(arg) {
         const cadena='Video'+String(arg);
         console.log(cadena);
         const lista= document.getElementById(`Imprimibles${arg}`);
+<<<<<<< HEAD
         data.videos.forEach(
+=======
+        data.diapositivas.forEach(
+>>>>>>> 52ab3dbc60c417be9ccb955dffe064315ed2156c
             item=>{
                 if (item.bloque.id_bloque==arg) {
                     const li=document.createElement('li');
                     const a=document.createElement('a');
                     const id=item.direccion;
                     alert(id);
+<<<<<<< HEAD
                     a.href=`../Libros/?id=${id}`;
+=======
+                    a.href=`../Imprimibles/?id=${id}`;
+>>>>>>> 52ab3dbc60c417be9ccb955dffe064315ed2156c
                     a.textContent=item.contenido.tema;
                     li.appendChild(a);
                     lista.appendChild(li);

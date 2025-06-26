@@ -137,6 +137,7 @@
     <h1>Apoyo a la educación primaria</h1>
 </header>
 <nav>
+
     <!-- Menú -->
     <ul>
         <li><a href="./index.html">Principal</a></li>
@@ -197,6 +198,205 @@
                         </li>
                         <li><a href="#">Imprimibles</a></li>
                         <li><a href="#">Progreso</a></li>
+    <!--Cambien esta lista por el menu que se vaya a usar para esa pagina, si alguna seccion del menu esta seleccionada denle la class de activa-->
+    <ul>
+        <li >
+            <a href="#" >Principal</a>
+        </li>
+        <li>
+            <a href="#">Perfil</a>
+            <ul>
+                <li>
+                    <a href="#">Consultar datos</a>
+                </li>
+                <li>
+                    <a href="#">Editar Datos</a>
+                </li>
+            </ul>
+            
+        </li>
+        <li>
+            <a  href="#">Bloque</a>
+            <ul>
+                <li>
+                    <a href=""> 1er Bloque</a>
+                    <ul>
+                        <li><a>Libros</a>
+                            <ul id="Libros1">
+                                    <script>
+                                        obtener_libros(1);
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Videos</a>
+                            <ul id="Video1">
+                                <script>
+                                    obtener_videos(1);
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Practicas</a>
+                        </li>
+                        <li>
+                            <a>Examenes</a>
+                            <ul id="Examenes1">
+                                <script>
+                                    obtener_examenes(1);
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                Imprimibles
+                            </a>
+                            <ul id="Imprimibles1">
+                                    <script>
+                                        obtener_imprimibles(1);
+                                    </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                Progreso
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li >
+                    <a href=""  > 2do Bloque</a>
+                    <ul>
+                        <li><a>Libros</a>
+                            <ul id="Libros2">
+                                    <script>
+                                        obtener_libros(2);
+                                </script>
+                            </ul>       
+                        </li>
+                        <li>
+                            <a>Videos</a>
+                            <ul id="Video2">
+                                    <script>
+                                        obtener_videos(2);
+                                    </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Practicas</a>
+                            <ul>
+                                <li>
+                                    <a href="../Formulario/?id=longitudesclau1">
+                                    Longitudes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../Formulario/?id=sucesoseneltiempoclau2">
+                                    Días de la semana
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../Formulario/?id=hasta50clau3">
+                                    Conteo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../Formulario/?id=fugurasclau4">
+                                    Figuras geometricas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../Formulario/?id=FORMULARIO_TRAYECTO5">
+                                    Volumen
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../Formulario/?id=FORMULARIO_TRAYECTO6">
+                                    Sumas y restas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../Formulario/?id=FORMULARIO_TRAYECTO8">
+                                    Operaciones y tiempo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../Formulario/?id=FORMULARIO_TRAYECTO9">
+                                    Botones
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a >Examenes</a>
+                            <ul id="Examenes2">
+                                <script>
+                                    obtener_examenes(2);
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                Imprimibles
+                                <ul id="Imprimibles2">
+                                    <script>
+                                        obtener_imprimibles(2);
+                                    </script>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                Progreso
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href=""> 3er Bloque</a>
+                    <ul>
+                        <li><a>Libros</a>
+                                <ul id="Libros3">
+                                    <script>
+                                        obtener_libros(3);
+                                    </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Videos</a>
+                            <ul id="Video3">
+                                    <script>
+                                        obtener_videos(3);
+                                    </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Practicas</a>
+                        </li>
+                        <li>
+                            <a>Examenes</a>
+                            <ul id="Examenes3">
+                                <script>
+                                    obtener_examenes(3);
+                                </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                Imprimibles
+                            </a>
+                            <ul id="Imprimibles3">
+                                    <script>
+                                        obtener_imprimibles(3);
+                                    </script>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                Progreso
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
             </ul>
@@ -204,14 +404,35 @@
         <li>
             <a href="#">Sesión</a>
             <ul>
+
                 <li><a href="#" onclick="cerrarSesion()">Cerrar sesión</a></li>
+
+                <li>
+                    <a href=""> 
+                        Cerrar sesión
+                    </a>
+                </li>
+
             </ul>
         </li>
         <li>
             <a href="#">Ayuda</a>
             <ul>
+
                 <li><a href="#">Manual de usuario</a></li>
                 <li><a href="#">Busqueda</a></li>
+
+                <li>
+                    <a href=""> 
+                        Manual de usuario
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        Busqueda    
+                    </a>
+                </li>
+
             </ul>
         </li>
     </ul>
