@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Apoyo a la Educación Primaria</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #00bfa6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #00bfa6;
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            color: #333;
+        }
+
+        h4 {
+            font-size: 1.3em;
+            color: #555;
+        }
+
+        p, ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "• ";
+            color: #00bfa6;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #00bfa6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #009688;
+        }
+
+        .content {
+            margin: 0 auto;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <header>
+            <h1>Manual de Usuario - Apoyo a la Educación Primaria</h1>
+        </header>
+
+        <section>
+            <h2>Introducción</h2>
+            <p>Este manual está diseñado para guiarte en el uso de la plataforma <strong>"Apoyo a la educación primaria"</strong>, la cual tiene como objetivo digitalizar los procesos académicos, incluyendo evaluaciones, seguimiento de tareas, gestión de calificaciones y recursos didácticos. Además, busca promover la interacción continua entre alumnos, docentes y personal administrativo, facilitando una comunicación fluida y la gestión de todas las actividades educativas desde un solo lugar.</p>
+            <p>A continuación, se detallan las funcionalidades de la plataforma y cómo navegar por ellas, adaptadas a tu rol específico: Administrador, Profesor o Alumno.</p>
+        </section>
+
+        <section>
+            <h2>1. Inicio de Sesión</h2>
+            <h3>¿Cómo iniciar sesión?</h3>
+            <p>Para ingresar a la plataforma, sigue los pasos a continuación:</p>
+
+            <h4>Ubicación del formulario de inicio de sesión:</h4>
+            <p>Al abrir la página, en la parte derecha de la pantalla encontrarás el formulario de inicio de sesión. Este formulario está contenido dentro de la sección "aside".</p>
+
+            <h4>Campos del formulario:</h4>
+            <ul>
+                <li><strong>Correo electrónico:</strong> Introduce el correo electrónico que registraste en la plataforma. Este es tu identificador para el acceso.</li>
+                <li><strong>Contraseña:</strong> Escribe tu contraseña. Si la has olvidado, haz clic en el enlace "Olvidaste la contraseña" para recuperarla.</li>
+                <li><strong>Tipo de usuario:</strong> Selecciona el tipo de usuario correspondiente:
+                    <ul>
+                        <li>Administrador</li>
+                        <li>Profesor</li>
+                        <li>Alumno</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Validación de datos:</h4>
+            <p>Después de completar los campos, haz clic en el botón "Enviar". Si los datos son correctos, serás redirigido a la página correspondiente según tu tipo de usuario.</p>
+            <p>Si es la primera vez que accedes o no tienes cuenta, puedes registrarte utilizando el enlace "Registrarse" que aparece debajo del formulario.</p>
+
+            <h4>Consejo:</h4>
+            <p>Si la plataforma muestra un mensaje de error después de intentar iniciar sesión, verifica si el correo y la contraseña son correctos. Si olvidas la contraseña, puedes utilizar la opción de recuperar contraseña.</p>
+        </section>
+
+        <section>
+            <h2>2. Navegación Principal</h2>
+            <p>La navegación en la plataforma está organizada a través de un menú que te permitirá acceder rápidamente a diferentes áreas según tu rol. El menú se encuentra en la parte superior de la página.</p>
+
+            <h4>Estructura del Menú:</h4>
+            <ul>
+                <li><strong>Principal:</strong> Te llevará de regreso a la página de inicio o dashboard de tu cuenta.</li>
+                <li><strong>Perfil:</strong>
+                    <ul>
+                        <li><strong>Consultar datos:</strong> Permite ver toda la información registrada, como tu nombre, correo electrónico, tipo de usuario y otros datos.</li>
+                        <li><strong>Editar datos:</strong> Actualiza tu información personal.</li>
+                    </ul>
+                </li>
+                <li><strong>Recursos:</strong>
+                    <ul>
+                        <li><strong>Crear:</strong> Agregar nuevos recursos educativos (solo Administradores y Profesores).</li>
+                        <li><strong>Consultar:</strong> Visualizar los recursos existentes en la plataforma.</li>
+                        <li><strong>Editar:</strong> Modificar los recursos existentes.</li>
+                    </ul>
+                </li>
+                <li><strong>Usuarios:</strong>
+                    <ul>
+                        <li><strong>Crear:</strong> Solo los Administradores pueden añadir nuevos usuarios.</li>
+                        <li><strong>Consultar:</strong> Ver la lista completa de usuarios registrados.</li>
+                        <li><strong>Editar:</strong> Modificar los datos de los usuarios.</li>
+                        <li><strong>Eliminar:</strong> Eliminar usuarios de la plataforma (solo Administradores).</li>
+                    </ul>
+                </li>
+                <li><strong>Ayuda:</strong>
+                    <ul>
+                        <li><strong>Manual de usuario:</strong> Accede a este documento.</li>
+                        <li><strong>Búsqueda:</strong> Buscar información sobre el sistema.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Funciones para Administradores</h2>
+            <h3>Gestión de Usuarios</h3>
+            <ul>
+                <li><strong>Crear nuevos usuarios:</strong> Añade usuarios a la plataforma, asignándoles un rol adecuado.</li>
+                <li><strong>Consultar usuarios existentes:</strong> Accede a la lista de todos los usuarios registrados.</li>
+                <li><strong>Editar usuarios:</strong> Modificar los datos de los usuarios.</li>
+                <li><strong>Eliminar usuarios:</strong> Eliminar usuarios de la plataforma si ya no requieren acceso.</li>
+            </ul>
+
+            <h3>Gestión de Recursos</h3>
+            <ul>
+                <li><strong>Crear recursos educativos:</strong> Añadir materiales como documentos, videos, lecciones, etc.</li>
+                <li><strong>Consultar recursos disponibles:</strong> Ver todos los recursos disponibles en la plataforma.</li>
+                <li><strong>Editar recursos existentes:</strong> Modificar los recursos ya creados.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Funciones para Profesores</h2>
+            <h3>Gestionar Recursos</h3>
+            <ul>
+                <li><strong>Consultar recursos:</strong> Ver los materiales educativos disponibles.</li>
+                <li><strong>Crear nuevos recursos:</strong> Añadir nuevos recursos educativos.</li>
+                <li><strong>Editar recursos existentes:</strong> Actualizar los recursos que hayas creado.</li>
+            </ul>
+
+            <h3>Acceso a Perfil</h3>
+            <ul>
+                <li><strong>Consultar y editar perfil:</strong> Los Profesores pueden consultar y actualizar su información personal.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Funciones para Alumnos</h2>
+            <ul>
+                <li><strong>Consultar recursos:</strong> Ver los recursos educativos disponibles.</li>
+                <li><strong>Acceso limitado:</strong> Los Alumnos no pueden crear ni editar recursos.</li>
+                <li><strong>Acceder a tu perfil:</strong> Los Alumnos pueden consultar su información personal, pero no tienen la capacidad de modificarla.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Cerrar Sesión</h2>
+            <p>Para proteger tu cuenta, es fundamental cerrar sesión al finalizar tu actividad:</p>
+            <ul>
+                <li><strong>Ubicación del botón de cierre de sesión:</strong> El botón "Cerrar sesión" se encuentra en la parte superior derecha de la página, junto a tu nombre de usuario.</li>
+                <li><strong>Acción al hacer clic:</strong> Al hacer clic en "Cerrar sesión", serás redirigido nuevamente a la página de inicio de sesión.</li>
+            </ul>
+            <p><strong>Consejo:</strong> Siempre cierra sesión en dispositivos públicos o compartidos para proteger tu cuenta.</p>
+        </section>
+
+        <section>
+            <h2>7. Ayuda y Soporte</h2>
+            <p>Si tienes dudas o problemas al usar la plataforma, puedes acceder a la opción de Ayuda en el menú superior. Las opciones disponibles son:</p>
+            <ul>
+                <li><strong>Manual de Usuario:</strong> Accede a este documento.</li>
+                <li><strong>Búsqueda:</strong> Utiliza la función de búsqueda para encontrar respuestas a preguntas comunes.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. Diseño y Estilos</h2>
+            <p>La plataforma tiene un diseño visual atractivo y accesible, gestionado a través de archivos CSS para ofrecer una experiencia de usuario agradable.</p>
+        </section>
+
+        <footer>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
+
+
