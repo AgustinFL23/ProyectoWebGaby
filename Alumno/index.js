@@ -131,7 +131,10 @@ function obtener_videos(arg) {
         console.error("Error al obtener examenes",error);
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> master
 }
 function obtener_imprimibles(arg) {
     fetch("Comun/PHP/obtener_imprimibles.php")
@@ -184,5 +187,8 @@ function obtener_libros(arg) {
     .catch(error=> {
         console.error("Error al obtener examenes",error);
     });
+<<<<<<< HEAD
 >>>>>>> 52ab3dbc60c417be9ccb955dffe064315ed2156c
+=======
+>>>>>>> master
 }
