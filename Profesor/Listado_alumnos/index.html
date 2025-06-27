@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vista Profesor</title>
+	<link rel="stylesheet" type="text/css" href="../Comun/CSS/headerNavFooter.css">
+	<link rel="stylesheet" type="text/css" href="../Comun/CSS/paletaProfesor.css">
+	<script src="../Comun/Javascript/session.js" defer></script>
+	<script src="index.js"></script>
+</head>
+<body>
+<header>
+	<img src="../Comun/Multimedia/Imagenes/logo.png" id="logo">
+	<h1>
+		Apoyo a la educación primaria
+	</h1>
+</header>
+<nav>
+	<ul>
+		<li >
+			<a href="#" id="activa">Principal</a>
+		</li>
+		<li>
+			<a href="#">Perfil</a>
+			<ul>
+				<li>
+					<a href="#">Consultar datos</a>
+				</li>
+        	  	<li>
+          			<a href="#">Editar datos</a>
+          		</li>	
+          		<li>
+          			<a href="#">Ver grupo</a>
+          		</li>
+          		<li>
+          			<a href="#">Recuperar contraseña</a>
+          		</li>
+          		<li>
+          			<a href="#">Cerrar sesión</a>
+          		</li>
+			</ul>
+			
+		</li>
+		<li>
+			<a href="#">Añadir recursos</a>
+			<ul>
+				<li><a href="Nuevo_Libro">Libro</a></li>
+				<li><a>Video</a></li>
+				<li><a>Practica</a></li>
+				<li><a>Examen</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">Calificaciones</a>
+		</li>
+		<li>
+			<a href="#">Ayuda</a>
+			<ul>
+				<li>
+					<a href=""> 
+						Manual de usuario
+					</a>
+				</li>
+				<li>
+					<a href="">
+						Busqueda	
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+<div id="layout">
+	<div id="principal">
+		<div id="contenido">
+			<div id="user-info">
+        Bienvenido, <span id="username-display"></span> 
+        (<span id="tipo-usuario-display"></span>)
+        <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+
+			<h2>Listado de Alumnos</h2>
+			<table id="alumnos-table">
+				<thead>
+					<tr>
+						<th>Grupo</th>
+						<th>ID Alumno</th>
+						<th>Nombre Alumno</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					</tbody>
+			</table>
+
+		</div>
+		<div id="footer">
+			copyright by Equipo1
+		</div>
+	</div>
+</div>
+</body>
+</html>
